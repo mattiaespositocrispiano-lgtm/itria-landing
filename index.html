@@ -3,1146 +3,553 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Itria — Infrastruttura digitale per le eccellenze agroalimentari del Sud Italia</title>
-<meta name="description" content="I tuoi documenti export elaborati in automatico. I tuoi buyer qualificati in tempo reale. I tuoi bandi trovati prima che scadano. Per produttori agroalimentari del Sud Italia.">
+<title>Itria &mdash; Per le eccellenze agroalimentari del Sud Italia</title>
+<meta name="description" content="Costruiamo l'infrastruttura digitale che restituisce tempo a chi produce cio che il mondo cerca.">
 <meta name="theme-color" content="#F5F1EA">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Itria — Infrastruttura digitale per le eccellenze del Sud Italia">
-<meta property="og:description" content="La tradizione tiene. I mercati si muovono. Itria mostra la strada.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://itria.io">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://itria.io">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ======================================================================
-   ITRIA — PUBLIC LANDING PAGE
-   itria.io — First impression for cold email recipients & direct traffic
-   Same design system as Cruscotto + Homepage
-   Valle d'Itria palette · Bodoni Moda + Cormorant Garamond + Archivo
-   ====================================================================== */
-
-:root {
-  --c-stone:        #F5F1EA;
-  --c-paper:        #FBF8F2;
-  --c-deep:         #EBE3D2;
-  --c-ink:          #1A1612;
-  --c-ink-soft:     #4A3F33;
-  --c-ink-mute:     #6E5840;
-  --c-terracotta:   #B04A2A;
-  --c-terracotta-d: #8C3A1F;
-  --c-terra-tint:   #EFD9CD;
-  --c-olive:        #5A6B3A;
-  --c-olive-tint:   #DDE2C8;
-  --c-adriatic:     #2A5670;
-  --c-stone-gray:   #8E8676;
-  --c-border:       #D9D2C3;
-  --c-border-s:     #B8AE9B;
-
-  --f-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
-  --f-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --f-sans:    'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-  --s-0: 0.25rem; --s-1: 0.5rem;  --s-2: 1rem;   --s-3: 1.5rem;
-  --s-4: 2.5rem;  --s-5: 4rem;    --s-6: 6rem;   --s-7: 9rem;   --s-8: 12rem;
-
-  --w-narrow:  640px;
-  --w-content: 880px;
-  --w-wide:    1080px;
+:root{
+  --stone:#F5F1EA;--paper:#FBF8F2;--ink:#1A1612;--ink-s:#4A3F33;--ink-m:#6E5840;
+  --terra:#B04A2A;--terra-d:#8C3A1F;--terra-t:#EFD9CD;
+  --olive:#5A6B3A;--gray:#8E8676;--border:#D9D2C3;--border-s:#B8AE9B;
+  --fd:'Bodoni Moda','Didot',serif;--fs:'Cormorant Garamond',Georgia,serif;--fn:'Archivo',sans-serif;
 }
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fd);font-size:19px;line-height:1.6;color:var(--ink);background:var(--stone);-webkit-font-smoothing:antialiased;overflow-x:hidden;font-family:var(--fs);}
+::selection{background:var(--terra-t);}
+a{color:inherit;text-decoration:none;}
+main{position:relative;z-index:2;}
+p{margin-bottom:1.5rem;}
+p:last-child{margin-bottom:0;}
+em{font-style:italic;color:var(--terra);}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(245,241,234,.94);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .4s;padding:14px 0;}
+.bar.on{border-bottom-color:var(--border);}
+.bar-in{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:var(--fd);font-size:21px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;}
+.logo span{font-family:var(--fs);font-style:italic;font-size:12px;color:var(--gray);margin-left:.6em;vertical-align:middle;text-transform:none;letter-spacing:.04em;}
+.nav-links{display:flex;gap:1.5rem;font-family:var(--fn);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-s);}
+.nav-links a:hover{color:var(--terra);}
+@media(max-width:720px){.nav-links{display:none;}}
 
-body {
-  font-family: var(--f-serif);
-  font-size: 19px;
-  line-height: 1.6;
-  color: var(--c-ink);
-  background: var(--c-stone);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
+.sec{padding:9rem 0;}
+.sec-paper{background:var(--paper);}
+.sec-ink{background:var(--ink);color:var(--stone);}
+.in{max-width:1080px;margin:0 auto;padding:0 1.5rem;}
+.in.narrow{max-width:640px;}
+@media(max-width:760px){.sec{padding:6rem 0;}}
+.sec-ink em{color:var(--terra-t);}
 
-body::before {
-  content: "";
-  position: fixed; inset: 0;
-  pointer-events: none; z-index: 0;
-  background-image:
-    radial-gradient(circle at 12% 8%, rgba(176, 74, 42, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 88% 80%, rgba(42, 86, 112, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(90, 107, 58, 0.02) 0%, transparent 60%);
-}
+.sm{font-family:var(--fn);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gray);margin-bottom:2.5rem;display:flex;align-items:baseline;gap:1rem;}
+.sm .n{font-family:var(--fd);font-size:14px;font-style:italic;color:var(--terra);letter-spacing:0;}
 
-main { position: relative; z-index: 1; }
-::selection { background: var(--c-terra-tint); color: var(--c-ink); }
+h2{font-family:var(--fd);font-weight:500;font-size:clamp(2rem,4.4vw,3rem);line-height:1.12;letter-spacing:-.005em;margin-bottom:2.5rem;}
+h3{font-family:var(--fd);font-weight:500;font-size:clamp(1.4rem,2.5vw,1.75rem);line-height:1.15;}
 
-/* ── NAV ── */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: var(--s-2) var(--s-4);
-  background: rgba(245, 241, 234, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid transparent;
-  font-family: var(--f-sans);
-  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-  transition: border-color 0.3s, background 0.3s;
-}
-.nav.scrolled {
-  border-bottom-color: var(--c-border);
-  background: rgba(245, 241, 234, 0.97);
-}
-.nav-logo {
-  font-family: var(--f-display); font-weight: 500;
-  font-size: 20px; letter-spacing: 0.32em;
-  color: var(--c-ink); text-transform: none; text-decoration: none;
-}
-.nav-links { display: flex; gap: var(--s-3); align-items: center; }
-.nav-links a {
-  color: var(--c-ink-mute); text-decoration: none;
-  font-weight: 500; letter-spacing: 0.14em;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--c-terracotta); }
-.nav-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 0.55rem 1.3rem;
-  background: var(--c-ink); color: var(--c-stone) !important;
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  text-decoration: none; transition: background 0.2s;
-}
-.nav-cta:hover { background: var(--c-terracotta) !important; color: var(--c-stone) !important; }
-@media (max-width: 720px) {
-  .nav { padding: var(--s-2); }
-  .nav-links .hide-mobile { display: none; }
-}
+.btn{display:inline-flex;align-items:center;gap:1rem;padding:14px 26px;font-family:var(--fn);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:all .3s;background:none;}
+.btn::after{content:"&#8594;";font-family:var(--fs);font-size:16px;letter-spacing:0;transition:transform .3s;margin-left:4px;}
+.btn:hover::after{transform:translateX(4px);}
+.bt{background:var(--terra);color:var(--paper);border-color:var(--terra);}
+.bt:hover{background:var(--terra-d);}
+.bs{background:transparent;color:var(--ink);border-color:var(--ink);}
+.bs:hover{background:var(--ink);color:var(--stone);}
+.bl{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.bl:hover{background:var(--terra-t);}
 
-/* ── TYPOGRAPHY ── */
-.eyebrow {
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-terracotta);
-  margin-bottom: var(--s-2);
-}
-.eyebrow-mute { color: var(--c-stone-gray); }
+.hero{min-height:88vh;padding:12rem 0 6rem;display:flex;flex-direction:column;justify-content:center;}
+.hero-in{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:1fr 220px;gap:4rem;align-items:end;}
+@media(max-width:880px){.hero-in{grid-template-columns:1fr;gap:2.5rem;}}
+.hmeta{font-family:var(--fn);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gray);margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;}
+.hmeta::before{content:"";width:32px;height:1px;background:var(--border-s);}
+.hl{font-family:var(--fd);font-weight:500;font-size:clamp(3rem,7.5vw,6rem);line-height:.98;letter-spacing:-.012em;}
+.hl .l1,.hl .l2,.hl .l3{display:block;opacity:0;transform:translateY(.6em);animation:hi 1.1s cubic-bezier(.16,1,.3,1) forwards;}
+.hl .l1{animation-delay:.05s;}
+.hl .l2{animation-delay:.25s;font-style:italic;color:var(--terra);}
+.hl .l3{animation-delay:.45s;font-style:italic;color:var(--ink-m);font-weight:400;font-size:.62em;margin-top:.4em;letter-spacing:0;}
+@keyframes hi{to{opacity:1;transform:translateY(0);}}
+.hlede{margin-top:2.5rem;font-size:clamp(1.15rem,1.5vw,1.3rem);line-height:1.55;color:var(--ink-s);max-width:38em;opacity:0;animation:fi 1s ease-out .85s forwards;}
+.hctas{margin-top:2.5rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;opacity:0;animation:fi 1s ease-out 1.05s forwards;}
+@keyframes fi{to{opacity:1;}}
+.aside{font-family:var(--fs);font-style:italic;font-size:.95rem;line-height:1.5;color:var(--ink-m);text-align:right;border-right:1px solid var(--border);padding-right:1.5rem;opacity:0;animation:fi 1.2s ease-out 1.3s forwards;}
+.aside .gr{display:block;font-family:var(--fd);font-style:normal;font-size:1.3rem;color:var(--terra);letter-spacing:.03em;margin-bottom:.5rem;}
+@media(max-width:880px){.aside{text-align:left;border-right:none;border-left:1px solid var(--border);padding-right:0;padding-left:1.5rem;}}
+@media(prefers-reduced-motion:reduce){.hl .l1,.hl .l2,.hl .l3,.hlede,.hctas,.aside{opacity:1;transform:none;animation:none;}}
 
-h1, h2, h3 { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.01em; }
-h1 em, h2 em, h3 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
+.narr{font-size:1.35rem;line-height:1.65;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
+.narr p:first-child::first-letter{font-family:var(--fd);font-size:5.5rem;line-height:.9;font-weight:500;font-style:italic;color:var(--terra);float:left;margin:.06em .12em 0 -.04em;}
+.pq{font-family:var(--fd);font-style:italic;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.3;color:var(--terra);text-align:center;margin:4rem auto;max-width:26em;padding:0 1.5rem;}
+.pq::before,.pq::after{content:"";display:block;width:40px;height:1px;background:var(--terra);margin:1.5rem auto;}
 
-.lede {
-  font-family: var(--f-serif); font-size: 1.35rem; line-height: 1.6;
-  color: var(--c-ink-soft); max-width: 38em;
+.qs{background:var(--paper);padding:9rem 0;position:relative;}
+.qs::before,.qs::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--border);}
+.qs::before{top:0;}
+.qs::after{bottom:0;}
+.qf{max-width:580px;margin:0 auto;padding:0 1.5rem;text-align:center;}
+.qt{font-family:var(--fd);font-size:clamp(2rem,4vw,2.75rem);line-height:1.12;margin-bottom:1.5rem;}
+.qt em{font-style:italic;color:var(--terra);}
+.ql{font-size:1.2rem;line-height:1.55;color:var(--ink-s);margin-bottom:4rem;max-width:30em;margin-left:auto;margin-right:auto;}
+.qm{display:flex;justify-content:center;gap:4rem;margin-bottom:4rem;font-family:var(--fn);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);}
+.qm-i{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.qm-i .v{font-family:var(--fd);font-style:italic;font-size:1.5rem;color:var(--terra);letter-spacing:0;text-transform:none;line-height:1;}
+.qform{text-align:left;margin-top:2.5rem;}
+.field{position:relative;margin-bottom:2.5rem;}
+.flbl{display:block;font-family:var(--fn);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gray);margin-bottom:.5rem;}
+.flbl .r{color:var(--terra);margin-left:2px;}
+.finp{width:100%;border:none;border-bottom:1px solid var(--border-s);background:transparent;padding:10px 0 12px;font-family:var(--fs);font-size:1.2rem;color:var(--ink);outline:none;transition:border-color .3s;border-radius:0;-webkit-appearance:none;}
+.finp::placeholder{color:var(--gray);font-style:italic;opacity:.8;}
+.finp:focus{border-bottom-color:var(--terra);}
+.finp.err{border-bottom-color:var(--terra-d);}
+.fhint{display:none;margin-top:6px;font-family:var(--fs);font-style:italic;font-size:.92rem;color:var(--terra-d);}
+.field.he .fhint{display:block;}
+.qsb{width:100%;margin-top:1.5rem;padding:18px;background:var(--terra);color:var(--paper);font-family:var(--fn);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;border:none;cursor:pointer;transition:background .3s;border-radius:0;}
+.qsb:hover{background:var(--terra-d);}
+.qsb:disabled{opacity:.5;cursor:not-allowed;}
+.qft{margin-top:1.5rem;text-align:center;font-family:var(--fs);font-style:italic;font-size:.95rem;color:var(--gray);}
+.qerr{display:none;margin-top:1.5rem;padding:1rem 1.5rem;background:var(--terra-t);border-left:2px solid var(--terra);font-family:var(--fs);font-style:italic;color:var(--terra-d);text-align:left;}
+.qerr.on{display:block;}
+
+.phase{display:grid;grid-template-columns:80px 1fr 220px;gap:2.5rem;padding:2.5rem 0;border-top:1px solid var(--border);align-items:start;}
+.phase:last-of-type{border-bottom:1px solid var(--border);}
+.pn{font-family:var(--fd);font-style:italic;font-size:2.5rem;color:var(--terra);line-height:1;}
+.pt{font-family:var(--fd);font-size:clamp(1.4rem,2.4vw,1.7rem);font-weight:500;margin-bottom:.5rem;}
+.pf{font-family:var(--fs);font-style:italic;font-size:1.05rem;color:var(--terra);margin-bottom:1rem;}
+.pb{font-size:1.1rem;line-height:1.6;color:var(--ink-s);text-align:justify;hyphens:auto;}
+.po{font-family:var(--fn);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);text-align:right;padding-top:8px;}
+.po .l{display:block;margin-bottom:.5rem;}
+.po .v{font-family:var(--fd);font-style:italic;font-size:1.15rem;color:var(--ink);letter-spacing:0;text-transform:none;line-height:1.3;}
+@media(max-width:880px){
+  .phase{grid-template-columns:60px 1fr;gap:1rem;}
+  .po{text-align:left;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
 }
 
-/* ── BUTTONS ── */
-.btn {
-  display: inline-flex; align-items: center; gap: var(--s-2);
-  padding: 1.1rem 2.2rem; border: none; border-radius: 0;
-  font-family: var(--f-sans); font-size: 13px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  cursor: pointer; text-decoration: none;
-  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1); position: relative;
-}
-.btn::after {
-  content: "→"; font-size: 16px; letter-spacing: 0;
-  transition: transform 0.28s;
-}
-.btn:hover::after { transform: translateX(4px); }
-.btn-primary { background: var(--c-ink); color: var(--c-stone); }
-.btn-primary:hover {
-  background: var(--c-terracotta); transform: translateY(-1px);
-  box-shadow: 0 8px 24px -8px rgba(176, 74, 42, 0.45);
-}
-.btn-secondary { background: transparent; color: var(--c-ink); border: 1.5px solid var(--c-ink); }
-.btn-secondary:hover { background: var(--c-ink); color: var(--c-stone); }
-.btn-outline-light {
-  background: transparent; color: var(--c-stone); border: 1.5px solid rgba(245,241,234,0.5);
-}
-.btn-outline-light:hover { background: rgba(245,241,234,0.12); }
+.db{text-align:center;background:var(--ink);color:var(--stone);}
+.db h2{color:var(--stone);}
+.db h2 em{color:var(--terra-t);}
+.dm{display:flex;justify-content:center;gap:4rem;margin:2.5rem 0 4rem;flex-wrap:wrap;}
+.dstat{display:flex;flex-direction:column;align-items:center;}
+.dsn{font-family:var(--fd);font-style:italic;font-size:2.5rem;color:var(--terra-t);line-height:1;}
+.dsl{font-family:var(--fn);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gray);margin-top:.5rem;}
 
-/* ── SECTION SYSTEM ── */
-.section { padding: var(--s-7) var(--s-4); position: relative; }
-.section-paper { background: var(--c-paper); }
-.section-deep  { background: var(--c-deep); }
-.section-ink   { background: var(--c-ink); color: var(--c-stone); }
-.section-inner { max-width: var(--w-content); margin: 0 auto; }
-.section-inner.wide { max-width: var(--w-wide); }
-.section-inner.narrow { max-width: var(--w-narrow); }
+.odiv{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:4rem auto;max-width:480px;color:var(--olive);}
+.odiv .line{flex:1;height:1px;background:var(--border-s);}
+.odiv svg{width:32px;height:32px;flex-shrink:0;}
 
-.divider {
-  width: 40px; height: 1.5px;
-  background: var(--c-terracotta);
-  margin: var(--s-4) 0;
-}
+.ogr{text-align:center;margin:2.5rem auto 4rem;}
+.ogr .gk{display:block;font-family:var(--fd);font-size:clamp(2.8rem,6vw,4.5rem);color:var(--terra);letter-spacing:.02em;line-height:1;margin-bottom:1rem;}
+.ogr .tr{display:block;font-family:var(--fs);font-style:italic;font-size:1.05rem;color:var(--ink-m);}
+.on{font-size:1.25rem;line-height:1.7;text-align:justify;hyphens:auto;}
+.on p{margin-bottom:1.5rem;}
+.on strong{font-weight:500;color:var(--terra);font-style:italic;}
 
-/* ── REVEAL ANIMATIONS ── */
-.reveal {
-  opacity: 0; transform: translateY(28px);
-  transition: opacity 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.12s; }
-.reveal-delay-2 { transition-delay: 0.24s; }
-.reveal-delay-3 { transition-delay: 0.36s; }
+.fb{display:grid;grid-template-columns:260px 1fr;gap:4rem;align-items:start;}
+@media(max-width:760px){.fb{grid-template-columns:1fr;gap:1.5rem;}}
+.fm{border-top:1px solid var(--border);padding-top:1.5rem;}
+.fm .fn2{font-family:var(--fd);font-size:1.6rem;font-weight:500;display:block;}
+.fm .fr{font-family:var(--fs);font-style:italic;font-size:1rem;color:var(--terra);display:block;margin-bottom:1.5rem;}
+.dl{list-style:none;}
+.dl li{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.98rem;}
+.dl .k{font-family:var(--fn);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);align-self:center;}
+.fbio{font-size:1.2rem;line-height:1.65;text-align:justify;hyphens:auto;}
 
-/* ================================================================
-   HERO
-   ================================================================ */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: calc(var(--s-8) + 2rem) var(--s-4) var(--s-6);
-  position: relative; overflow: hidden;
-}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem;}
+@media(max-width:880px){.cg{grid-template-columns:1fr;}}
+.cc{display:block;padding:2.5rem;background:var(--paper);border:1px solid var(--border);transition:all .3s;color:var(--ink);}
+.cc:hover{border-color:var(--terra);transform:translateY(-2px);}
+.cc .cl{font-family:var(--fn);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;}
+.cc .cv{font-family:var(--fd);font-size:1.5rem;font-style:italic;color:var(--terra);margin-bottom:1rem;line-height:1.2;}
+.cc .cs{font-size:1rem;line-height:1.5;color:var(--ink-s);}
 
-.hero-inner { max-width: var(--w-wide); margin: 0 auto; }
+.foot{background:var(--ink);color:var(--stone);padding:9rem 0 4rem;}
+.foot-in{max-width:880px;margin:0 auto;padding:0 1.5rem;text-align:center;}
+.fcl{font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.25;font-weight:400;margin-bottom:4rem;}
+.fcl em{font-style:italic;color:var(--terra-t);font-weight:500;}
+.fmeta{display:flex;flex-direction:column;align-items:center;gap:1rem;font-family:var(--fn);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);}
+.facr{font-family:var(--fs);font-style:italic;font-size:.95rem;letter-spacing:.02em;text-transform:none;color:var(--ink-m);max-width:40em;text-align:center;line-height:1.5;}
 
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 6px 14px;
-  border: 1px solid var(--c-border-s);
-  background: var(--c-paper);
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-stone-gray);
-  margin-bottom: var(--s-4);
-}
-.hero-badge-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--c-olive); animation: pulse 2.5s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
-}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.rv.on{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.12s;}
+.d2{transition-delay:.24s;}
+.d3{transition-delay:.36s;}
+.d4{transition-delay:.48s;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
 
-.hero-headline {
-  font-family: var(--f-display);
-  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
-  font-weight: 400; line-height: 1.08;
-  letter-spacing: -0.025em;
-  color: var(--c-ink); margin-bottom: var(--s-4);
-  max-width: 13em;
-}
-.hero-headline em {
-  font-family: var(--f-serif); font-style: italic; font-weight: 400;
-  color: var(--c-terracotta);
-}
-
-.hero-pain-strip {
-  display: flex; flex-direction: column; gap: var(--s-1);
-  margin-bottom: var(--s-5);
-}
-.hero-pain-line {
-  display: flex; align-items: center; gap: var(--s-2);
-  font-family: var(--f-serif); font-size: 1.25rem; font-style: italic;
-  color: var(--c-ink-soft); line-height: 1.4;
-}
-.hero-pain-line::before {
-  content: "→";
-  font-family: var(--f-sans); font-style: normal; font-size: 13px;
-  color: var(--c-terracotta); flex-shrink: 0;
-}
-
-.hero-cta-row {
-  display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap;
-}
-.hero-note {
-  font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.1em;
-  color: var(--c-stone-gray); text-transform: uppercase;
-}
-
-/* Hero background ornament */
-.hero-ornament {
-  position: absolute; right: -4%; top: 50%;
-  transform: translateY(-50%);
-  font-family: var(--f-display); font-size: 28vw; font-weight: 400;
-  font-style: italic; color: rgba(176, 74, 42, 0.04);
-  pointer-events: none; user-select: none; white-space: nowrap;
-  line-height: 1;
-}
-
-@media (max-width: 768px) {
-  .hero { min-height: auto; padding-top: calc(var(--s-7) + 2rem); }
-  .hero-ornament { display: none; }
-  .hero-cta-row { flex-direction: column; align-items: flex-start; }
-}
-
-/* ================================================================
-   PROBLEMA — The wound we name
-   ================================================================ */
-.problema-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-3);
-  margin-top: var(--s-5);
-}
-.problema-card {
-  padding: var(--s-4);
-  border: 1px solid var(--c-border);
-  background: var(--c-stone);
-  position: relative;
-}
-.problema-card::before {
-  content: attr(data-num);
-  position: absolute; top: var(--s-3); right: var(--s-3);
-  font-family: var(--f-display); font-style: italic; font-size: 3.5rem;
-  font-weight: 400; color: rgba(176,74,42,0.07); line-height: 1;
-}
-.problema-icon {
-  font-size: 1.4rem; margin-bottom: var(--s-3);
-  display: block;
-}
-.problema-card h3 {
-  font-family: var(--f-display); font-size: 1.2rem; font-weight: 500;
-  line-height: 1.25; margin-bottom: var(--s-2);
-}
-.problema-card p {
-  font-family: var(--f-serif); font-size: 1rem; line-height: 1.6;
-  color: var(--c-ink-mute);
-}
-.problema-stat {
-  display: inline-block; margin-top: var(--s-3);
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-terracotta);
-}
-@media (max-width: 900px) {
-  .problema-grid { grid-template-columns: 1fr; }
-}
-
-/* ================================================================
-   SERVIZI — Three service cards with pricing
-   ================================================================ */
-.servizi-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-3); margin-top: var(--s-5);
-}
-.servizio-card {
-  display: flex; flex-direction: column;
-  padding: var(--s-4) var(--s-4) var(--s-3);
-  background: var(--c-paper); border: 1px solid var(--c-border);
-  position: relative; transition: box-shadow 0.25s, transform 0.25s;
-}
-.servizio-card:hover {
-  box-shadow: 0 12px 40px -12px rgba(26, 22, 18, 0.14);
-  transform: translateY(-3px);
-}
-.servizio-card.featured {
-  border-color: var(--c-terracotta);
-  background: var(--c-stone);
-}
-.servizio-card.featured::before {
-  content: "Più richiesto";
-  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-  background: var(--c-terracotta); color: var(--c-stone);
-  font-family: var(--f-sans); font-size: 10px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 4px 14px; white-space: nowrap;
-}
-.servizio-number {
-  font-family: var(--f-display); font-style: italic; font-size: 3rem; font-weight: 400;
-  color: var(--c-terracotta); opacity: 0.35; line-height: 1; margin-bottom: var(--s-2);
-}
-.servizio-card h3 {
-  font-family: var(--f-display); font-size: 1.35rem; font-weight: 500;
-  line-height: 1.2; margin-bottom: var(--s-2);
-}
-.servizio-card .descr {
-  font-family: var(--f-serif); font-size: 1rem; color: var(--c-ink-mute);
-  line-height: 1.6; flex: 1; margin-bottom: var(--s-3);
-}
-.servizio-features {
-  list-style: none; margin: 0 0 var(--s-3) 0; padding: 0;
-}
-.servizio-features li {
-  display: flex; align-items: flex-start; gap: 8px;
-  font-family: var(--f-sans); font-size: 12px; line-height: 1.5;
-  color: var(--c-ink-soft); padding: 5px 0;
-  border-bottom: 1px solid var(--c-border);
-}
-.servizio-features li:last-child { border-bottom: none; }
-.servizio-features li::before {
-  content: "✓"; color: var(--c-olive); font-size: 11px; margin-top: 1px; flex-shrink: 0;
-}
-.servizio-price-block { margin-top: auto; padding-top: var(--s-3); border-top: 1px solid var(--c-border); }
-.servizio-price {
-  font-family: var(--f-display); font-size: 2.4rem; font-weight: 500; line-height: 1;
-  color: var(--c-ink); letter-spacing: -0.02em;
-}
-.servizio-price-unit {
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-stone-gray);
-  margin-top: 4px;
-}
-.servizio-bandi-note {
-  display: flex; align-items: center; gap: 6px; margin-top: 6px;
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--c-olive);
-}
-.servizio-bandi-note::before { content: "★"; font-size: 10px; }
-
-@media (max-width: 900px) {
-  .servizi-grid { grid-template-columns: 1fr; }
-  .servizio-card.featured { margin-top: var(--s-2); }
-}
-
-/* ================================================================
-   BANDI BAND — grant coverage
-   ================================================================ */
-.bandi-band {
-  background: var(--c-olive);
-  padding: var(--s-4) var(--s-4);
-  text-align: center;
-}
-.bandi-band-inner {
-  max-width: var(--w-content); margin: 0 auto;
-  display: flex; align-items: center; justify-content: center;
-  gap: var(--s-5); flex-wrap: wrap;
-}
-.bandi-stat {
-  text-align: center;
-}
-.bandi-stat-num {
-  font-family: var(--f-display); font-size: 3.5rem; font-weight: 400;
-  color: var(--c-stone); line-height: 1; letter-spacing: -0.02em;
-}
-.bandi-stat-label {
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(245, 241, 234, 0.7); margin-top: 4px;
-}
-.bandi-divider {
-  width: 1px; height: 60px;
-  background: rgba(245, 241, 234, 0.25);
-}
-.bandi-band-text {
-  font-family: var(--f-serif); font-size: 1.15rem; font-style: italic;
-  color: rgba(245, 241, 234, 0.85); max-width: 28em; text-align: left;
-}
-@media (max-width: 720px) {
-  .bandi-band-inner { flex-direction: column; gap: var(--s-3); }
-  .bandi-divider { display: none; }
-  .bandi-band-text { text-align: center; }
-}
-
-/* ================================================================
-   COME FUNZIONA — Process
-   ================================================================ */
-.processo-steps {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 0; margin-top: var(--s-5); position: relative;
-}
-.processo-steps::before {
-  content: "";
-  position: absolute; top: 32px; left: 12%; right: 12%;
-  height: 1px; background: var(--c-border);
-}
-.processo-step {
-  padding: 0 var(--s-3); padding-bottom: var(--s-4);
-  position: relative; text-align: center;
-}
-.step-num {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--c-stone); border: 1px solid var(--c-border);
-  font-family: var(--f-display); font-style: italic; font-size: 1.6rem;
-  font-weight: 400; color: var(--c-terracotta);
-  margin: 0 auto var(--s-3); position: relative; z-index: 1;
-  transition: border-color 0.2s, background 0.2s;
-}
-.processo-step:hover .step-num {
-  background: var(--c-terra-tint); border-color: var(--c-terracotta);
-}
-.processo-step h3 {
-  font-family: var(--f-display); font-size: 1.05rem; font-weight: 500;
-  margin-bottom: var(--s-1);
-}
-.processo-step p {
-  font-family: var(--f-sans); font-size: 12px; line-height: 1.6;
-  color: var(--c-ink-mute);
-}
-@media (max-width: 768px) {
-  .processo-steps { grid-template-columns: repeat(2, 1fr); }
-  .processo-steps::before { display: none; }
-}
-@media (max-width: 480px) {
-  .processo-steps { grid-template-columns: 1fr; }
-  .processo-step { text-align: left; display: flex; align-items: flex-start; gap: var(--s-3); }
-  .step-num { flex-shrink: 0; margin: 0; }
-}
-
-/* ================================================================
-   SOCIAL PROOF
-   ================================================================ */
-.social-row {
-  display: flex; align-items: flex-start; gap: var(--s-5); flex-wrap: wrap;
-  margin-top: var(--s-5);
-}
-.social-stat {
-  text-align: left;
-}
-.social-stat-num {
-  font-family: var(--f-display); font-size: 3rem; font-weight: 400;
-  color: var(--c-stone); line-height: 1; letter-spacing: -0.02em;
-}
-.social-stat-label {
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(245,241,234,0.6); margin-top: 5px;
-}
-.social-quote {
-  flex: 1; min-width: 260px;
-  padding: var(--s-3) var(--s-4);
-  border-left: 3px solid rgba(245, 241, 234, 0.25);
-  font-family: var(--f-serif); font-style: italic; font-size: 1.25rem;
-  line-height: 1.55; color: rgba(245,241,234,0.85);
-}
-.social-quote cite {
-  display: block; margin-top: var(--s-2);
-  font-family: var(--f-sans); font-style: normal; font-size: 11px;
-  font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(245,241,234,0.5);
-}
-.beta-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 8px 16px; background: rgba(245, 241, 234, 0.08);
-  border: 1px solid rgba(245, 241, 234, 0.2);
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(245,241,234,0.6); margin-top: var(--s-4);
-}
-.beta-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--c-terracotta); animation: pulse 2.5s infinite;
-}
-
-/* ================================================================
-   CTA — Quadro form
-   ================================================================ */
-.quadro-form-wrap {
-  max-width: 540px; margin: var(--s-5) auto 0;
-}
-.quadro-form-wrap h2 {
-  font-family: var(--f-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  text-align: center; margin-bottom: var(--s-2); line-height: 1.15;
-}
-.quadro-form-wrap .sub {
-  font-family: var(--f-serif); font-size: 1.1rem; font-style: italic;
-  color: var(--c-ink-mute); text-align: center; margin-bottom: var(--s-4);
-}
-.form-field {
-  display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--s-3);
-}
-.form-field label {
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-stone-gray);
-}
-.form-field input, .form-field select {
-  padding: 14px 16px;
-  border: 1px solid var(--c-border); border-radius: 0;
-  background: var(--c-stone); color: var(--c-ink);
-  font-family: var(--f-serif); font-size: 1rem;
-  outline: none; transition: border-color 0.2s;
-  -webkit-appearance: none; appearance: none;
-  width: 100%;
-}
-.form-field input:focus, .form-field select:focus {
-  border-color: var(--c-terracotta);
-}
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
-@media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
-
-.form-submit {
-  width: 100%; padding: 1.1rem; cursor: pointer;
-  background: var(--c-ink); color: var(--c-stone);
-  border: none; border-radius: 0;
-  font-family: var(--f-sans); font-size: 13px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  transition: background 0.25s, transform 0.2s;
-}
-.form-submit:hover {
-  background: var(--c-terracotta); transform: translateY(-1px);
-}
-.form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.form-submit .arrow { transition: transform 0.25s; }
-.form-submit:hover .arrow { transform: translateX(4px); }
-.form-note {
-  text-align: center; margin-top: var(--s-2);
-  font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--c-stone-gray);
-}
-
-.form-success {
-  display: none; text-align: center; padding: var(--s-5) var(--s-4);
-  border: 1px solid var(--c-olive-tint);
-  background: rgba(90, 107, 58, 0.04);
-}
-.form-success .check {
-  font-size: 2.5rem; margin-bottom: var(--s-3); display: block;
-}
-.form-success h3 {
-  font-family: var(--f-display); font-size: 1.8rem; margin-bottom: var(--s-2);
-}
-.form-success p {
-  font-family: var(--f-serif); font-size: 1rem; color: var(--c-ink-mute);
-}
-
-/* ================================================================
-   FOOTER
-   ================================================================ */
-.footer {
-  background: var(--c-ink); color: var(--c-stone);
-  padding: var(--s-5) var(--s-4) var(--s-4);
-}
-.footer-inner {
-  max-width: var(--w-wide); margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--s-5);
-}
-.footer-brand-name {
-  font-family: var(--f-display); font-size: 2rem; font-weight: 400;
-  letter-spacing: 0.3em; color: var(--c-stone); margin-bottom: var(--s-2);
-}
-.footer-brand-tagline {
-  font-family: var(--f-serif); font-style: italic; font-size: 1rem;
-  color: rgba(245,241,234,0.6); margin-bottom: var(--s-3); line-height: 1.5;
-}
-.footer-brand-sub {
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(245,241,234,0.35);
-}
-.footer-col h4 {
-  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(245,241,234,0.4); margin-bottom: var(--s-3);
-}
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 10px; }
-.footer-col ul a {
-  font-family: var(--f-sans); font-size: 13px; font-weight: 500;
-  letter-spacing: 0.08em; color: rgba(245,241,234,0.7);
-  text-decoration: none; transition: color 0.2s;
-}
-.footer-col ul a:hover { color: var(--c-stone); }
-.footer-bottom {
-  max-width: var(--w-wide); margin: var(--s-5) auto 0;
-  padding-top: var(--s-3); border-top: 1px solid rgba(245,241,234,0.1);
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s-2);
-  font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: rgba(245,241,234,0.35);
-}
-@media (max-width: 720px) {
-  .footer-inner { grid-template-columns: 1fr; gap: var(--s-4); }
-  .footer-bottom { flex-direction: column; text-align: center; }
-}
+.ov{display:none;position:fixed;inset:0;z-index:100;background:var(--stone);align-items:center;justify-content:center;flex-direction:column;padding:2.5rem;}
+.ov.on{display:flex;}
+.ov-in{position:relative;text-align:center;max-width:520px;}
+.ov-ey{font-family:var(--fn);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gray);margin-bottom:1.5rem;}
+.ov-co{font-family:var(--fd);font-style:italic;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--terra);margin-bottom:4rem;line-height:1.2;}
+.ov-ol{width:90px;height:90px;margin:0 auto 2.5rem;color:var(--olive);}
+.ov-ol svg{width:100%;height:100%;}
+.ov-ol path{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:200;stroke-dashoffset:200;animation:dr 4s ease-in-out infinite;}
+.ov-ol path:nth-child(2){animation-delay:.4s;}
+.ov-ol path:nth-child(3){animation-delay:.8s;}
+.ov-ol path:nth-child(4){animation-delay:1.2s;}
+@keyframes dr{0%{stroke-dashoffset:200;opacity:.2;}40%{stroke-dashoffset:0;opacity:1;}80%{stroke-dashoffset:0;opacity:1;}100%{stroke-dashoffset:-200;opacity:.2;}}
+.ov-st{font-family:var(--fd);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--ink);line-height:1.4;min-height:2.4em;margin-bottom:2.5rem;transition:opacity .5s;}
+.ov-st.fd{opacity:0;}
+.ov-ti{font-family:var(--fn);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;justify-content:center;gap:1rem;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--terra);animation:bl 1.6s ease-in-out infinite;}
+@keyframes bl{0%,100%{opacity:.3;transform:scale(.85);}50%{opacity:1;transform:scale(1);}}
+.ov-fn{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);font-family:var(--fs);font-style:italic;font-size:.95rem;color:var(--gray);}
 </style>
 </head>
-
 <body>
 
-<!-- ── NAV ── -->
-<nav class="nav" id="nav">
-  <a href="/" class="nav-logo">ITRIA</a>
-  <div class="nav-links">
-    <a href="#servizi" class="hide-mobile">Servizi</a>
-    <a href="#come-funziona" class="hide-mobile">Come funziona</a>
-    <a href="#quadro" class="nav-cta">Quadro gratuito <span style="margin-left:2px">→</span></a>
+<header class="bar" id="bar">
+  <div class="bar-in">
+    <a href="#" class="logo">Itria <span>Hodeghetria</span></a>
+    <nav class="nav-links">
+      <a href="#quadro">Quadro</a>
+      <a href="#approccio">Approccio</a>
+      <a href="#origine">Origine</a>
+      <a href="#conversazione">Conversazione</a>
+    </nav>
   </div>
-</nav>
+</header>
 
 <main>
 
-<!-- ================================================================
-     HERO
-     ================================================================ -->
-<section class="hero" id="home">
-  <div class="hero-ornament" aria-hidden="true">Itria</div>
-  <div class="hero-inner">
-
-    <div class="hero-badge reveal">
-      <span class="hero-badge-dot"></span>
-      Attualmente in beta · Produttori agroalimentari del Sud Italia
-    </div>
-
-    <h1 class="hero-headline reveal reveal-delay-1">
-      L'infrastruttura che <em>restituisce tempo</em> a chi produce ciò che il mondo cerca.
-    </h1>
-
-    <div class="hero-pain-strip reveal reveal-delay-2">
-      <div class="hero-pain-line">I tuoi documenti export elaborati in automatico.</div>
-      <div class="hero-pain-line">I tuoi buyer qualificati in tempo reale.</div>
-      <div class="hero-pain-line">I tuoi bandi trovati prima che scadano.</div>
-    </div>
-
-    <div class="hero-cta-row reveal reveal-delay-3">
-      <a href="#quadro" class="btn btn-primary">Richiedi il tuo Quadro Digitale Export</a>
-      <span class="hero-note">Gratuito · 4 minuti · Nessun impegno</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================================================================
-     IL PROBLEMA — The wound
-     ================================================================ -->
-<section class="section section-paper" id="problema">
-  <div class="section-inner wide">
-
-    <div class="eyebrow reveal">Il problema</div>
-    <h2 style="font-size: clamp(1.8rem, 3vw, 3rem); max-width: 18em;" class="reveal reveal-delay-1">
-      Ogni giorno, le aziende agroalimentari del Sud perdono <em>tempo e fatturato</em> sulle stesse tre frizioni.
-    </h2>
-    <div class="divider reveal reveal-delay-2"></div>
-
-    <div class="problema-grid">
-
-      <div class="problema-card reveal" data-num="1">
-        <span class="problema-icon">📋</span>
-        <h3>Il buyer scrive, nessuno risponde</h3>
-        <p>Ogni richiesta export finisce in una form generica. Un buyer tedesco che aspetta 48 ore compra dal concorrente spagnolo.</p>
-        <span class="problema-stat">~80% delle aziende ICP ha questo problema</span>
-      </div>
-
-      <div class="problema-card reveal reveal-delay-1" data-num="2">
-        <span class="problema-icon">📂</span>
-        <h3>I documenti si fanno a mano, ogni volta</h3>
-        <p>Schede tecniche, DDT, certificazioni, compliance doganale. Tre ore di lavoro manuale per ogni nuova spedizione verso un nuovo mercato.</p>
-        <span class="problema-stat">3 ore per spedizione → 45 secondi con Itria</span>
-      </div>
-
-      <div class="problema-card reveal reveal-delay-2" data-num="3">
-        <span class="problema-icon">🏛️</span>
-        <h3>I bandi scadono senza che nessuno li trovi</h3>
-        <p>Sviluppo Competenze 2026, ZES Unica, PNRR. Contributi a fondo perduto fino al 70% che coprono esattamente quello che state già pagando.</p>
-        <span class="problema-stat">Media non sfruttata: €18.000/anno per azienda</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     BANDI BAND
-     ================================================================ -->
-<div class="bandi-band reveal">
-  <div class="bandi-band-inner">
-    <div class="bandi-stat">
-      <div class="bandi-stat-num">70%</div>
-      <div class="bandi-stat-label">Sviluppo Competenze 2026</div>
-    </div>
-    <div class="bandi-divider"></div>
-    <div class="bandi-stat">
-      <div class="bandi-stat-num">+20%</div>
-      <div class="bandi-stat-label">ZES Unica Mezzogiorno</div>
-    </div>
-    <div class="bandi-divider"></div>
-    <div class="bandi-band-text">
-      Il governo copre fino al 90% del costo di setup. Il costo netto per un'azienda del Sud può essere inferiore a €300 al mese.
-    </div>
-  </div>
-</div>
-
-<!-- ================================================================
-     SERVIZI
-     ================================================================ -->
-<section class="section" id="servizi">
-  <div class="section-inner wide">
-
-    <div class="eyebrow reveal">I servizi</div>
-    <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: var(--s-2);" class="reveal reveal-delay-1">
-      Tre sistemi. Un'unica <em>infrastruttura</em>.
-    </h2>
-    <p class="lede reveal reveal-delay-2">
-      Non vendiamo software. Costruiamo l'infrastruttura operativa che gestisce il lavoro ripetitivo — così chi produce può concentrarsi su ciò che vale.
-    </p>
-
-    <div class="servizi-grid">
-
-      <!-- SERVIZIO 1 — Buyer Qualifier -->
-      <div class="servizio-card reveal">
-        <div class="servizio-number">01</div>
-        <h3>Qualificatore Buyer Internazionale</h3>
-        <p class="descr">Un sistema intelligente che riceve le richieste dei tuoi buyer esteri, le qualifica automaticamente per paese, volume e tipo, e risponde in meno di 60 secondi nella lingua del compratore.</p>
-        <ul class="servizio-features">
-          <li>Qualificazione automatica A/B/C per potenziale</li>
-          <li>Risposta multilingua in &lt;60 secondi</li>
-          <li>Alert WhatsApp per buyer Tier A</li>
-          <li>Log completo su dashboard dedicata</li>
-        </ul>
-        <div class="servizio-price-block">
-          <div class="servizio-price">€299</div>
-          <div class="servizio-price-unit">al mese · canone ricorrente</div>
-          <div class="servizio-bandi-note">Coperto al 70% da bandi</div>
-        </div>
-      </div>
-
-      <!-- SERVIZIO 2 — Document Automation (featured) -->
-      <div class="servizio-card featured reveal reveal-delay-1">
-        <div class="servizio-number">02</div>
-        <h3>Automazione Documentale Export</h3>
-        <p class="descr">Schede tecniche, certificazioni, compliance doganale, DDT — generati automaticamente dal tuo archivio prodotti in qualsiasi lingua e formato richiesto dal mercato di destinazione.</p>
-        <ul class="servizio-features">
-          <li>Generazione automatica da archivio prodotti</li>
-          <li>Output in EN/DE/FR/ES/AR</li>
-          <li>Formati CE, FDA, Halal ready</li>
-          <li>3 ore di lavoro → 45 secondi</li>
-        </ul>
-        <div class="servizio-price-block">
-          <div class="servizio-price">€390</div>
-          <div class="servizio-price-unit">al mese · canone ricorrente</div>
-          <div class="servizio-bandi-note">Coperto al 70% da bandi</div>
-        </div>
-      </div>
-
-      <!-- SERVIZIO 3 — Bandi Matcher -->
-      <div class="servizio-card reveal reveal-delay-2">
-        <div class="servizio-number">03</div>
-        <h3>Bandi AI — Ricerca Automatica</h3>
-        <p class="descr">Il sistema legge i tuoi documenti aziendali e incrocia automaticamente i bandi attivi con il tuo profilo reale — non con una categoria generica. Nessun consulente. Nessuna perdita di scadenze.</p>
-        <ul class="servizio-features">
-          <li>Matching su documenti aziendali reali</li>
-          <li>Aggiornamento automatico scadenze</li>
-          <li>Score di aderenza per ogni bando</li>
-          <li>Alert 30/15/7 giorni prima della scadenza</li>
-        </ul>
-        <div class="servizio-price-block">
-          <div class="servizio-price">€290</div>
-          <div class="servizio-price-unit">al mese · canone ricorrente</div>
-          <div class="servizio-bandi-note">Si ripaga con il primo bando trovato</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Pricing note -->
-    <div style="margin-top: var(--s-5); padding: var(--s-4); background: var(--c-deep); border: 1px solid var(--c-border);" class="reveal">
-      <div style="display: flex; gap: var(--s-5); align-items: center; flex-wrap: wrap;">
-        <div>
-          <div class="eyebrow eyebrow-mute" style="margin-bottom: var(--s-1);">Pacchetto completo (tutti e 3)</div>
-          <div style="display: flex; align-items: baseline; gap: 12px;">
-            <span style="font-family: var(--f-display); font-size: 2.8rem; font-weight: 400; letter-spacing: -0.02em;">€890</span>
-            <span style="font-family: var(--f-sans); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-stone-gray);">/mese lordo</span>
-          </div>
-        </div>
-        <div style="width: 1px; height: 60px; background: var(--c-border);"></div>
-        <div>
-          <div class="eyebrow" style="margin-bottom: var(--s-1);">Dopo bandi (70%)</div>
-          <div style="display: flex; align-items: baseline; gap: 12px;">
-            <span style="font-family: var(--f-display); font-size: 2.8rem; font-weight: 400; letter-spacing: -0.02em; color: var(--c-olive);">€267</span>
-            <span style="font-family: var(--f-sans); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-stone-gray);">/mese netto</span>
-          </div>
-        </div>
-        <div style="flex: 1; min-width: 220px;">
-          <p style="font-family: var(--f-serif); font-size: 1rem; font-style: italic; color: var(--c-ink-mute); line-height: 1.55;">
-            €267 al mese per avere un sistema che qualifica i tuoi buyer, genera i tuoi documenti export e trova i tuoi bandi in automatico — finanziato al 70% dal governo italiano.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================================================================
-     COME FUNZIONA
-     ================================================================ -->
-<section class="section section-paper" id="come-funziona">
-  <div class="section-inner wide">
-
-    <div class="eyebrow reveal">Come funziona</div>
-    <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: var(--s-2);" class="reveal reveal-delay-1">
-      Da zero a sistema operativo in <em>quattro minuti</em>.
-    </h2>
-    <p class="lede reveal reveal-delay-2">Nessuna formazione. Nessuna migrazione dati. Nessun cambio di strumenti esistenti.</p>
-
-    <div class="processo-steps">
-      <div class="processo-step reveal">
-        <div class="step-num">1</div>
-        <h3>Il Quadro Digitale Export</h3>
-        <p>Una diagnosi gratuita di 4 minuti. Analizziamo il tuo stato attuale su 5 dimensioni: buyer, documenti, bandi, ciclo cliente, visibilità dati.</p>
-      </div>
-      <div class="processo-step reveal reveal-delay-1">
-        <div class="step-num">2</div>
-        <h3>La proposta personalizzata</h3>
-        <p>Dal risultato del Quadro, generiamo automaticamente una proposta specifica per la tua azienda — con i tuoi numeri, i tuoi bandi, il tuo costo netto.</p>
-      </div>
-      <div class="processo-step reveal reveal-delay-2">
-        <div class="step-num">3</div>
-        <h3>L'onboarding in 4 minuti</h3>
-        <p>Firma digitale, accesso alla dashboard, collegamento al tuo Drive aziendale. Il sistema è live lo stesso giorno del contratto.</p>
-      </div>
-      <div class="processo-step reveal reveal-delay-3">
-        <div class="step-num">4</div>
-        <h3>Il sistema lavora</h3>
-        <p>Da quel momento, buyers qualificati, documenti generati, bandi monitorati — senza intervento manuale. Tu controli tutto dalla dashboard.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================================================================
-     SOCIAL PROOF — ink section
-     ================================================================ -->
-<section class="section section-ink">
-  <div class="section-inner wide">
-
-    <div class="eyebrow" style="color: rgba(245,241,234,0.45); margin-bottom: var(--s-3);" class="reveal">
-      Beta chiusa · Sud Italia
-    </div>
-    <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); color: var(--c-stone); margin-bottom: var(--s-4);" class="reveal reveal-delay-1">
-      Costruita per chi <em>esporta davvero</em>.
-    </h2>
-
-    <div class="social-row reveal reveal-delay-2">
-      <div class="social-stat">
-        <div class="social-stat-num">50+</div>
-        <div class="social-stat-label">Aziende analizzate</div>
-      </div>
-      <div class="social-stat">
-        <div class="social-stat-num">€0</div>
-        <div class="social-stat-label">Costi diagnostica</div>
-      </div>
-      <div class="social-stat">
-        <div class="social-stat-num">45"</div>
-        <div class="social-stat-label">Per generare un documento export</div>
-      </div>
-      <div class="social-quote reveal reveal-delay-3">
-        "Il sistema che stavi cercando da quando hai aperto il primo mercato estero — senza saperlo."
-        <cite>Attualmente in beta con produttori agroalimentari del Mezzogiorno · Olio, pasta, conserve, vino</cite>
-      </div>
-    </div>
-
-    <div class="beta-badge reveal" style="margin-top: var(--s-4);">
-      <span class="beta-dot"></span>
-      Beta attiva · Accesso limitato · Agroalimentare Sud Italia
-    </div>
-
-  </div>
-</section>
-
-<!-- ================================================================
-     CTA — Quadro Form
-     ================================================================ -->
-<section class="section section-deep" id="quadro">
-  <div class="section-inner narrow">
-
-    <div class="quadro-form-wrap">
-
-      <div class="eyebrow" style="text-align: center;" class="reveal">Diagnosi gratuita</div>
-      <h2 class="reveal reveal-delay-1">Richiedi il tuo Quadro Digitale Export</h2>
-      <p class="sub reveal reveal-delay-2">4 minuti. Riceви una diagnosi reale della tua infrastruttura export su 5 dimensioni, con il costo netto dopo i bandi.</p>
-
-      <div id="quadro-form" class="reveal reveal-delay-3">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="f-nome">Nome e cognome</label>
-            <input type="text" id="f-nome" placeholder="Mario Rossi" autocomplete="name">
-          </div>
-          <div class="form-field">
-            <label for="f-ruolo">Ruolo</label>
-            <input type="text" id="f-ruolo" placeholder="Titolare / Resp. Export" autocomplete="organization-title">
-          </div>
-        </div>
-        <div class="form-field">
-          <label for="f-azienda">Nome azienda</label>
-          <input type="text" id="f-azienda" placeholder="Azienda Rossi S.r.l." autocomplete="organization">
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="f-settore">Settore</label>
-            <select id="f-settore">
-              <option value="">Seleziona…</option>
-              <option>Olio extravergine</option>
-              <option>Pasta e cereali</option>
-              <option>Conserve e sughi</option>
-              <option>Vino e distillati</option>
-              <option>Formaggi e latticini</option>
-              <option>Caffè e bevande</option>
-              <option>Dolciumi e confetteria</option>
-              <option>Biologico certificato</option>
-              <option>Altro agroalimentare</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="f-mercati">Mercati export principali</label>
-            <input type="text" id="f-mercati" placeholder="Germania, USA, Francia…">
-          </div>
-        </div>
-        <div class="form-field">
-          <label for="f-email">Email</label>
-          <input type="email" id="f-email" placeholder="mario@azienda.it" autocomplete="email">
-        </div>
-        <button class="form-submit" id="quadro-btn" onclick="submitQuadro()">
-          <span>Avvia il Quadro Digitale Export</span>
-          <span class="arrow">→</span>
-        </button>
-        <p class="form-note">Gratuito · Nessuno spam · Risposta in 24 ore</p>
-      </div>
-
-      <div class="form-success" id="quadro-success">
-        <span class="check">✓</span>
-        <h3>Richiesta ricevuta</h3>
-        <p>Il tuo Quadro Digitale Export è in elaborazione. Riceverai il link via email entro 24 ore. Nel frattempo, puoi anche accedere direttamente:</p>
-        <a href="https://diagnostico.itria.io" class="btn btn-secondary" style="margin-top: var(--s-3);">Apri il Quadro ora</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     FOOTER
-     ================================================================ -->
-<footer class="footer">
-  <div class="footer-inner">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-in">
     <div>
-      <div class="footer-brand-name">ITRIA</div>
-      <div class="footer-brand-tagline">
-        La tradizione tiene.<br>
-        I mercati si muovono.<br>
-        Itria mostra la strada.
+      <div class="hmeta"><span>Per le eccellenze agroalimentari del Sud Italia</span></div>
+      <h1 class="hl">
+        <span class="l1">La tradizione</span>
+        <span class="l2">tiene.</span>
+        <span class="l3">I mercati si muovono.</span>
+      </h1>
+      <p class="hlede">Costruiamo l&rsquo;infrastruttura digitale che restituisce tempo a chi produce ci&ograve; che il mondo cerca. <em>Itria mostra la strada.</em></p>
+      <div class="hctas">
+        <a href="#quadro" class="btn bt">Iniziare dal Quadro</a>
+        <a href="#approccio" class="btn bs">Vedere l&rsquo;approccio</a>
       </div>
-      <div class="footer-brand-sub">I · T · R · I · A</div>
     </div>
-    <div class="footer-col">
-      <h4>Servizi</h4>
-      <ul>
-        <li><a href="#servizi">Qualificatore Buyer</a></li>
-        <li><a href="#servizi">Automazione Documenti</a></li>
-        <li><a href="#servizi">Bandi AI</a></li>
-        <li><a href="#quadro">Quadro Digitale Export</a></li>
-      </ul>
+    <aside class="aside">
+      <span class="gr">&#927;&#948;&#951;&#947;&#942;&#964;&#961;&#953;&#945;</span>
+      Dal greco bizantino<br><em>Hodeghetria</em><br>&mdash; colei che mostra la strada
+    </aside>
+  </div>
+</section>
+
+<!-- I. DIAGNOSI -->
+<section class="sec" id="diagnosi">
+  <div class="in narrow">
+    <div class="sm rv"><span class="n">I.</span><span>Diagnosi del settore</span></div>
+    <h2 class="rv" style="margin-bottom:2.5rem;">Il problema delle eccellenze del Sud Italia <em>non &egrave; la qualit&agrave;.</em></h2>
+    <div class="narr rv d1">
+      <p>Le eccellenze del Sud Italia non hanno mai avuto un problema di qualit&agrave;. Hanno un problema di tempo. Mentre il mondo compra italiano a prezzi premium, chi quel cibo lo produce davvero passa le giornate a rispondere a mail in tre lingue, inseguire distributori che dimenticano gli ordini, compilare documenti doganali a mano.</p>
     </div>
-    <div class="footer-col">
-      <h4>Accesso</h4>
-      <ul>
-        <li><a href="https://workflow.itria.io">workflow.itria.io</a></li>
-        <li><a href="https://diagnostico.itria.io">diagnostico.itria.io</a></li>
-        <li><a href="mailto:info@itria.io">info@itria.io</a></li>
-      </ul>
+    <div class="pq rv d2">La tradizione non muore per mancanza di valore.<br>Muore per <em>saturazione operativa.</em></div>
+    <div class="narr rv d3">
+      <p>Automatizziamo ci&ograve; che si ripete, perch&eacute; possiate concentrarvi su ci&ograve; che non si ripeter&agrave; mai: la prossima generazione, il prossimo mercato, la prossima eccellenza che porta il nome della famiglia oltre confine.</p>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2026 Itria · itria.io · workflow.itria.io</span>
-    <span>Costruita a Taranto. Distribuita nel Mezzogiorno.</span>
-    <span>P.IVA IT ________________</span>
+</section>
+
+<!-- II. QUADRO -->
+<section class="qs" id="quadro">
+  <div class="qf">
+    <div class="sm rv" style="justify-content:center;"><span class="n">II.</span><span>Il Quadro Digitale Export</span></div>
+    <h2 class="qt rv d1">Sessanta secondi.<br>Una mappa precisa <em>di dove perdete denaro.</em></h2>
+    <p class="ql rv d2">Inserite l&rsquo;indirizzo del vostro sito. In meno di un minuto vedrete quello che i vostri buyer esteri vedono su sei dimensioni operative.</p>
+    <div class="qm rv d3">
+      <div class="qm-i"><span class="v">6</span><span>Dimensioni</span></div>
+      <div class="qm-i"><span class="v">60&Prime;</span><span>Tempo</span></div>
+      <div class="qm-i"><span class="v">&euro;0</span><span>Costo</span></div>
+    </div>
+    <form class="qform rv d4" id="qform" novalidate>
+      <div class="field" id="fw-name">
+        <label class="flbl" for="qf-name">Nome dell&rsquo;azienda <span class="r">&middot;</span></label>
+        <input class="finp" type="text" id="qf-name" placeholder="Es. Frantoio Bianco &middot; Cantina Schola Sarmenti" autocomplete="organization" required>
+        <div class="fhint">Indicate il nome dell&rsquo;azienda.</div>
+      </div>
+      <div class="field" id="fw-url">
+        <label class="flbl" for="qf-url">Indirizzo del sito <span class="r">&middot;</span></label>
+        <input class="finp" type="url" id="qf-url" placeholder="https://www.lavostraazienda.it" autocomplete="url" inputmode="url" required>
+        <div class="fhint">Indirizzo completo, incluso https://</div>
+      </div>
+      <div class="field" id="fw-email">
+        <label class="flbl" for="qf-email">Email per il risultato <span class="r">&middot;</span></label>
+        <input class="finp" type="email" id="qf-email" placeholder="vostranome@lavostraazienda.it" autocomplete="email" required>
+        <div class="fhint">Indicate un indirizzo valido.</div>
+      </div>
+      <button type="submit" class="qsb" id="qfsub">Avviare il Quadro</button>
+      <div class="qerr" id="qerr"></div>
+      <p class="qft">Diagnostica autonoma. Nessuna registrazione. <em>Risultato immediato.</em></p>
+    </form>
   </div>
-</footer>
+</section>
+
+<!-- III. APPROCCIO -->
+<section class="sec sec-paper" id="approccio">
+  <div class="in">
+    <div class="sm rv"><span class="n">III.</span><span>Approccio in tre passi</span></div>
+    <h2 class="rv">Niente trasformazione totale. <em>Tre passi, in sequenza.</em></h2>
+    <p class="rv d1" style="font-size:1.25rem;color:var(--ink-s);margin-bottom:4rem;max-width:38em;">Ogni passo deve produrre risultato prima che si parli del successivo.</p>
+    <div class="phase rv">
+      <div class="pn">I.</div>
+      <div>
+        <h3 class="pt">Automazione amministrativa</h3>
+        <p class="pf">Il passo che restituisce ore.</p>
+        <p class="pb">Primi trenta giorni. DDT, fatture e documenti doganali generati in automatico, comunicazione fornitori, CRM con promemoria di riordino. L&rsquo;erede operativo recupera tra le otto e le dodici ore alla settimana.</p>
+      </div>
+      <div class="po"><div class="l">Risultato</div><div class="v">8&ndash;12 ore<br>alla settimana</div></div>
+    </div>
+    <div class="phase rv">
+      <div class="pn">II.</div>
+      <div>
+        <h3 class="pt">Motore outbound internazionale</h3>
+        <p class="pf">Il passo che apre mercati.</p>
+        <p class="pb">Distributori e importatori tedeschi, francesi, olandesi, americani, britannici contattati nella loro lingua, qualificati prima di arrivare a voi. Le risposte rilevanti tornano all&rsquo;erede operativo per la gestione della relazione.</p>
+      </div>
+      <div class="po"><div class="l">Risultato</div><div class="v">Buyer qualificati<br>per trimestre</div></div>
+    </div>
+    <div class="phase rv">
+      <div class="pn">III.</div>
+      <div>
+        <h3 class="pt">Intelligenza aggregata</h3>
+        <p class="pf">Il passo che produce vantaggio durevole.</p>
+        <p class="pb">Automazione post-vendita, analisi predittiva sui mercati esteri, benchmark trimestrali aggregati in forma anonima che tornano a voi come vantaggio informativo concreto.</p>
+      </div>
+      <div class="po"><div class="l">Risultato</div><div class="v">Leadership<br>informativa</div></div>
+    </div>
+    <p class="rv" style="margin-top:2.5rem;font-family:var(--fs);font-style:italic;color:var(--gray);font-size:1.05rem;">Ogni passo &egrave; venduto separatamente. Ogni passo giustifica il successivo. Nessuna trasformazione totale, mai.</p>
+  </div>
+</section>
+
+<!-- IV. DIAGNOSTICO -->
+<section class="sec db" id="diagnostico">
+  <div class="in narrow">
+    <p class="rv" style="font-family:var(--fn);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;">In alternativa al Quadro</p>
+    <h2 class="rv d1">Cinque minuti, <em>con voi stessi.</em></h2>
+    <p class="rv d2" style="font-size:1.2rem;line-height:1.55;color:var(--gray);max-width:36em;margin:0 auto 2.5rem;">Il diagnostico Itria misura cinque dimensioni operative attraverso venti domande. Un punteggio, un grafico, tre interventi prioritari. <em>Senza parlare con nessuno.</em></p>
+    <div class="dm rv d3">
+      <div class="dstat"><span class="dsn">20</span><span class="dsl">Domande</span></div>
+      <div class="dstat"><span class="dsn">5</span><span class="dsl">Dimensioni</span></div>
+      <div class="dstat"><span class="dsn">5&prime;</span><span class="dsl">Tempo</span></div>
+      <div class="dstat"><span class="dsn">&euro;0</span><span class="dsl">Costo</span></div>
+    </div>
+    <a href="diagnostico.html" class="btn bl rv d4">Iniziare il diagnostico</a>
+  </div>
+</section>
+
+<!-- V. ORIGINE -->
+<section class="sec" id="origine">
+  <div class="in narrow">
+    <div class="sm rv"><span class="n">IV.</span><span>Origine del nome</span></div>
+    <div class="ogr rv">
+      <span class="gk">&#927;&#948;&#951;&#947;&#942;&#964;&#961;&#953;&#945;</span>
+      <span class="tr">Hodeghetria &middot; colei che mostra la strada</span>
+    </div>
+    <div class="on rv d1">
+      <p>Itria viene dalla <strong>Valle d&rsquo;Itria</strong> &mdash; il cuore geografico e culturale della Puglia. Alberobello, Locorotondo, Cisternino, Martina Franca. Il nome della valle deriva dal greco bizantino <em>Hodeghetria</em>: un titolo iconografico che significa, letteralmente, <em>colei che mostra la strada.</em></p>
+      <div class="odiv">
+        <span class="line"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 22 V 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M12 14 C 8 14 6 11 5 9 C 8 9 11 11 12 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 11 C 16 11 18 8 19 6 C 16 6 13 8 12 11" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="line"></span>
+      </div>
+      <p>Il nome non &egrave; un omaggio decorativo. &Egrave; una <em>funzione.</em> Operiamo da Taranto. Parliamo le lingue dei buyer del Nord Europa con la stessa sicurezza con cui parliamo il dialetto di chi produce.</p>
+      <p><em>Il decisore di un&rsquo;azienda agroalimentare familiare del Sud sceglie quello che siede al tavolo come uno di famiglia, e parla con i clienti esteri come uno di Berlino.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- VI. FONDATORE -->
+<section class="sec sec-paper" id="fondatore">
+  <div class="in">
+    <div class="sm rv"><span class="n">V.</span><span>Chi opera</span></div>
+    <div class="fb">
+      <aside class="fm rv">
+        <span class="fn2">Mattia Esposito</span>
+        <span class="fr">Fondatore &middot; Operatore</span>
+        <ul class="dl">
+          <li><span class="k">Origine</span><span>Taranto</span></li>
+          <li><span class="k">Sede</span><span>Torino &middot; Sud Italia</span></li>
+          <li><span class="k">Lingue</span><span>IT &middot; EN &middot; DE &middot; FR</span></li>
+          <li><span class="k">Formazione</span><span>SAA Torino</span></li>
+        </ul>
+      </aside>
+      <div class="fbio rv d1">
+        <p>Itria &egrave; fondata e operata in prima persona. Chi parla con voi &egrave; chi costruisce il sistema, chi lo presidia, chi siede al tavolo della cantina o del frantoio quando si discute la prima implementazione.</p>
+        <p>La struttura &egrave; deliberatamente piccola. <em>Niente account manager che vi presenta a un team che non vedrete mai.</em> Una conversazione, un perimetro chiaro, un sistema funzionante entro trenta giorni dalla firma.</p>
+        <p>L&rsquo;operativit&agrave; diretta &egrave; una scelta strutturale. Ogni intervento si conclude con il cliente che possiede ci&ograve; che &egrave; stato costruito &mdash; non con una dipendenza permanente da un fornitore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VII. CONVERSAZIONE -->
+<section class="sec" id="conversazione">
+  <div class="in">
+    <div class="sm rv"><span class="n">VI.</span><span>Iniziare una conversazione</span></div>
+    <h2 class="rv">Tre modi <em>per cominciare.</em></h2>
+    <div class="cg rv d1">
+      <a href="#quadro" class="cc">
+        <div class="cl">Un minuto, da soli</div>
+        <div class="cv">Il Quadro</div>
+        <div class="cs">Inserite il vostro sito. Il sistema legge, misura, vi rimanda la mappa delle sei dimensioni e tre priorit&agrave; immediate.</div>
+      </a>
+      <a href="mailto:info@itria.io?subject=Conversazione%20preliminare" class="cc">
+        <div class="cl">Quindici minuti, via email</div>
+        <div class="cv">Una mail</div>
+        <div class="cs">Scriveteci una situazione operativa che vi pesa. Rispondiamo entro 24 ore con una lettura, non con un preventivo.</div>
+      </a>
+      <a href="mailto:info@itria.io?subject=Chiamata%20diagnostica" class="cc">
+        <div class="cl">Trenta minuti, in chiamata</div>
+        <div class="cv">Una telefonata</div>
+        <div class="cs">Prenotate una chiamata diagnostica gratuita. Mappiamo insieme dove intervenire &mdash; anche se non lavoreremo insieme.</div>
+      </a>
+    </div>
+    <p class="rv d2" style="margin-top:4rem;font-family:var(--fs);font-style:italic;font-size:1.1rem;color:var(--gray);text-align:center;">Non rispondiamo ai messaggi LinkedIn.<br>Ogni conversazione passa da email o telefono. <em>Vecchio stile, per scelta.</em></p>
+  </div>
+</section>
 
 </main>
 
+<footer class="foot">
+  <div class="foot-in">
+    <p class="fcl">La tradizione tiene.<br>I mercati si muovono.<br><em>Itria mostra la strada.</em></p>
+    <div class="fmeta">
+      <span>ITRIA &middot; MMXXVI</span>
+      <span class="facr">Integrazione Tecnologica per il Rendimento dell&rsquo;Impresa Adattiva &mdash; operiamo da Taranto, per il Sud Italia che esporta.</span>
+      <span>itria.io &middot; cruscotto.itria.io</span>
+    </div>
+  </div>
+</footer>
+
+<!-- SCAN OVERLAY -->
+<div class="ov" id="ov">
+  <div class="ov-in">
+    <p class="ov-ey">Il Quadro &egrave; in lavorazione</p>
+    <p class="ov-co" id="ov-co">&mdash;</p>
+    <div class="ov-ol" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <path d="M50 95 V 25"/>
+        <path d="M50 65 C 30 65 20 50 12 38 C 30 38 44 50 50 65"/>
+        <path d="M50 50 C 70 50 80 35 88 23 C 70 23 56 35 50 50"/>
+        <path d="M50 78 C 35 78 25 67 18 55 C 35 55 46 67 50 78"/>
+      </svg>
+    </div>
+    <p class="ov-st" id="ov-st">Stiamo leggendo il vostro sito...</p>
+    <div class="ov-ti">
+      <span class="dot"></span>
+      <span id="ov-el">00:00</span>
+      <span>&middot; Circa 60 secondi</span>
+    </div>
+    <p class="ov-fn">Non chiudete questa pagina.<br>Vi reindirizziamo automaticamente al Quadro completo.</p>
+  </div>
+</div>
+
 <script>
-/* ── NAV scroll ── */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
+const bar=document.getElementById('bar');
+window.addEventListener('scroll',()=>bar.classList.toggle('on',scrollY>12),{passive:true});
 
-/* ── Reveal on scroll ── */
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+const rvEls=document.querySelectorAll('.rv');
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
+},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+rvEls.forEach(el=>obs.observe(el));
 
-revealEls.forEach(el => observer.observe(el));
-
-/* ── Smooth scroll for anchors ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      const navH = nav.offsetHeight + 16;
-      const top = target.getBoundingClientRect().top + window.scrollY - navH;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const h=a.getAttribute('href');
+    if(h==='#')return;
+    const t=document.querySelector(h);
+    if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-60,behavior:'smooth'});}
   });
 });
 
-/* ── Quadro form submit ── */
-function submitQuadro() {
-  const nome    = document.getElementById('f-nome').value.trim();
-  const azienda = document.getElementById('f-azienda').value.trim();
-  const email   = document.getElementById('f-email').value.trim();
-  const settore = document.getElementById('f-settore').value;
+(function(){
+  const form=document.getElementById('qform');
+  const ov=document.getElementById('ov');
+  const st=document.getElementById('ov-st');
+  const co=document.getElementById('ov-co');
+  const el=document.getElementById('ov-el');
+  const er=document.getElementById('qerr');
+  const sb=document.getElementById('qfsub');
+  const API='https://cruscotto.itria.io/api/quadro/scan';
+  const BASE='https://cruscotto.itria.io/quadro/';
+  const STAGES=[
+    'Stiamo leggendo il vostro sito...',
+    'Identifichiamo i vostri prodotti e mercati...',
+    'Misuriamo la vostra presenza B2B...',
+    'Analizziamo la qualificazione dei buyer...',
+    'Calcoliamo le tre priorita operative...'
+  ];
+  let si=0,sT=null,eT=null,t0=0;
 
-  if (!nome || !azienda || !email) {
-    // Shake the button
-    const btn = document.getElementById('quadro-btn');
-    btn.style.background = '#B04A2A';
-    setTimeout(() => { btn.style.background = ''; }, 800);
-    return;
+  function cycle(){
+    st.classList.add('fd');
+    setTimeout(()=>{si=(si+1)%STAGES.length;st.textContent=STAGES[si];st.classList.remove('fd');},400);
   }
-
-  // Basic email validation
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    const f = document.getElementById('f-email');
-    f.style.borderColor = 'var(--c-terracotta)';
-    f.focus();
-    return;
+  function tick(){
+    const s=Math.floor((Date.now()-t0)/1000);
+    el.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
   }
+  function showOv(n){
+    co.textContent=n||'--';si=0;st.textContent=STAGES[0];t0=Date.now();tick();
+    ov.classList.add('on');document.body.style.overflow='hidden';
+    sT=setInterval(cycle,10000);eT=setInterval(tick,1000);
+  }
+  function hideOv(){
+    ov.classList.remove('on');document.body.style.overflow='';
+    clearInterval(sT);clearInterval(eT);
+  }
+  function showErr(m){er.textContent=m;er.classList.add('on');sb.disabled=false;sb.textContent='Avviare il Quadro';}
+  function clearErr(){er.textContent='';er.classList.remove('on');}
+  function setFe(id,w,v){
+    const f=document.getElementById(id);
+    const fw=document.getElementById(w);
+    if(v){f.classList.add('err');fw.classList.add('he');}
+    else{f.classList.remove('err');fw.classList.remove('he');}
+  }
+  function validUrl(s){try{const u=new URL(s);return u.protocol==='http:'||u.protocol==='https:';}catch{return false;}}
+  function validEmail(s){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);}
 
-  const btn = document.getElementById('quadro-btn');
-  btn.disabled = true;
-  btn.innerHTML = '<span>Elaborazione in corso…</span>';
-
-  // Build the Quadro URL with pre-filled params
-  const slug = azienda.toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .replace(/\s+/g, '-');
-
-  const params = new URLSearchParams({
-    company: azienda,
-    email:   email,
-    name:    nome,
-    sector:  settore,
-    ref:     'landing'
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();clearErr();
+    const nm=document.getElementById('qf-name').value.trim();
+    let url=document.getElementById('qf-url').value.trim();
+    const em=document.getElementById('qf-email').value.trim();
+    if(url&&!/^https?:\/\//i.test(url)){url='https://'+url;document.getElementById('qf-url').value=url;}
+    let bad=false;
+    setFe('qf-name','fw-name',false);setFe('qf-url','fw-url',false);setFe('qf-email','fw-email',false);
+    if(nm.length<2){setFe('qf-name','fw-name',true);bad=true;}
+    if(!validUrl(url)){setFe('qf-url','fw-url',true);bad=true;}
+    if(!validEmail(em)){setFe('qf-email','fw-email',true);bad=true;}
+    if(bad){showErr('Verificate i campi indicati e riprovate.');return;}
+    sb.disabled=true;sb.textContent='In corso...';
+    showOv(nm);
+    try{
+      const r=await fetch(API,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({companyName:nm,url:url,email:em})
+      });
+      if(!r.ok){
+        let msg='Errore durante l\'analisi. Riprovate fra qualche minuto.';
+        try{const j=await r.json();if(j&&j.error)msg=j.error;}catch{}
+        hideOv();showErr(msg);return;
+      }
+      const d=await r.json();
+      if(!d||!d.report||!d.report.scanId){hideOv();showErr('Risposta non valida. Riprovate.');return;}
+      st.classList.add('fd');
+      setTimeout(()=>{st.textContent='Il vostro Quadro e pronto.';st.classList.remove('fd');},400);
+      setTimeout(()=>{window.location.href=BASE+encodeURIComponent(d.report.scanId);},1400);
+    }catch(err){
+      console.error(err);hideOv();showErr('Connessione interrotta. Verificate la rete e riprovate.');
+    }
   });
-
-  // Submit to n8n webhook (replace URL with real endpoint)
-  const webhookUrl = 'https://workflow.itria.io/webhook/quadro-request';
-
-  fetch(webhookUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nome, azienda, email, settore,
-      mercati: document.getElementById('f-mercati').value.trim(),
-      ruolo: document.getElementById('f-ruolo').value.trim(),
-      source: 'itria.io', timestamp: new Date().toISOString() })
-  })
-  .then(() => showSuccess())
-  .catch(() => {
-    // Even on network error — show success (n8n might not have CORS)
-    // The form data will be picked up in n8n via another mechanism
-    showSuccess();
-  });
-}
-
-function showSuccess() {
-  document.getElementById('quadro-form').style.display = 'none';
-  const s = document.getElementById('quadro-success');
-  s.style.display = 'block';
-  s.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
+})();
 </script>
-
 </body>
 </html>
