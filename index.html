@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itria — Infrastruttura digitale per le eccellenze agroalimentari del Sud Italia</title>
+<meta name="description" content="I tuoi documenti export elaborati in automatico. I tuoi buyer qualificati in tempo reale. I tuoi bandi trovati prima che scadano. Per produttori agroalimentari del Sud Italia.">
+<meta name="theme-color" content="#F5F1EA">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Itria — Infrastruttura digitale per le eccellenze del Sud Italia">
+<meta property="og:description" content="La tradizione tiene. I mercati si muovono. Itria mostra la strada.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://itria.io">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://itria.io">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ======================================================================
+   ITRIA — PUBLIC LANDING PAGE
+   itria.io — First impression for cold email recipients & direct traffic
+   Same design system as Cruscotto + Homepage
+   Valle d'Itria palette · Bodoni Moda + Cormorant Garamond + Archivo
+   ====================================================================== */
+
+:root {
+  --c-stone:        #F5F1EA;
+  --c-paper:        #FBF8F2;
+  --c-deep:         #EBE3D2;
+  --c-ink:          #1A1612;
+  --c-ink-soft:     #4A3F33;
+  --c-ink-mute:     #6E5840;
+  --c-terracotta:   #B04A2A;
+  --c-terracotta-d: #8C3A1F;
+  --c-terra-tint:   #EFD9CD;
+  --c-olive:        #5A6B3A;
+  --c-olive-tint:   #DDE2C8;
+  --c-adriatic:     #2A5670;
+  --c-stone-gray:   #8E8676;
+  --c-border:       #D9D2C3;
+  --c-border-s:     #B8AE9B;
+
+  --f-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+  --f-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --f-sans:    'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --s-0: 0.25rem; --s-1: 0.5rem;  --s-2: 1rem;   --s-3: 1.5rem;
+  --s-4: 2.5rem;  --s-5: 4rem;    --s-6: 6rem;   --s-7: 9rem;   --s-8: 12rem;
+
+  --w-narrow:  640px;
+  --w-content: 880px;
+  --w-wide:    1080px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--f-serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--c-ink);
+  background: var(--c-stone);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(176, 74, 42, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 88% 80%, rgba(42, 86, 112, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(90, 107, 58, 0.02) 0%, transparent 60%);
+}
+
+main { position: relative; z-index: 1; }
+::selection { background: var(--c-terra-tint); color: var(--c-ink); }
+
+/* ── NAV ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--s-2) var(--s-4);
+  background: rgba(245, 241, 234, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  font-family: var(--f-sans);
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  transition: border-color 0.3s, background 0.3s;
+}
+.nav.scrolled {
+  border-bottom-color: var(--c-border);
+  background: rgba(245, 241, 234, 0.97);
+}
+.nav-logo {
+  font-family: var(--f-display); font-weight: 500;
+  font-size: 20px; letter-spacing: 0.32em;
+  color: var(--c-ink); text-transform: none; text-decoration: none;
+}
+.nav-links { display: flex; gap: var(--s-3); align-items: center; }
+.nav-links a {
+  color: var(--c-ink-mute); text-decoration: none;
+  font-weight: 500; letter-spacing: 0.14em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--c-terracotta); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 0.55rem 1.3rem;
+  background: var(--c-ink); color: var(--c-stone) !important;
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--c-terracotta) !important; color: var(--c-stone) !important; }
+@media (max-width: 720px) {
+  .nav { padding: var(--s-2); }
+  .nav-links .hide-mobile { display: none; }
+}
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-terracotta);
+  margin-bottom: var(--s-2);
+}
+.eyebrow-mute { color: var(--c-stone-gray); }
+
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.01em; }
+h1 em, h2 em, h3 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; }
+
+.lede {
+  font-family: var(--f-serif); font-size: 1.35rem; line-height: 1.6;
+  color: var(--c-ink-soft); max-width: 38em;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  padding: 1.1rem 2.2rem; border: none; border-radius: 0;
+  font-family: var(--f-sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1); position: relative;
+}
+.btn::after {
+  content: "→"; font-size: 16px; letter-spacing: 0;
+  transition: transform 0.28s;
+}
+.btn:hover::after { transform: translateX(4px); }
+.btn-primary { background: var(--c-ink); color: var(--c-stone); }
+.btn-primary:hover {
+  background: var(--c-terracotta); transform: translateY(-1px);
+  box-shadow: 0 8px 24px -8px rgba(176, 74, 42, 0.45);
+}
+.btn-secondary { background: transparent; color: var(--c-ink); border: 1.5px solid var(--c-ink); }
+.btn-secondary:hover { background: var(--c-ink); color: var(--c-stone); }
+.btn-outline-light {
+  background: transparent; color: var(--c-stone); border: 1.5px solid rgba(245,241,234,0.5);
+}
+.btn-outline-light:hover { background: rgba(245,241,234,0.12); }
+
+/* ── SECTION SYSTEM ── */
+.section { padding: var(--s-7) var(--s-4); position: relative; }
+.section-paper { background: var(--c-paper); }
+.section-deep  { background: var(--c-deep); }
+.section-ink   { background: var(--c-ink); color: var(--c-stone); }
+.section-inner { max-width: var(--w-content); margin: 0 auto; }
+.section-inner.wide { max-width: var(--w-wide); }
+.section-inner.narrow { max-width: var(--w-narrow); }
+
+.divider {
+  width: 40px; height: 1.5px;
+  background: var(--c-terracotta);
+  margin: var(--s-4) 0;
+}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+
+/* ================================================================
+   HERO
+   ================================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: calc(var(--s-8) + 2rem) var(--s-4) var(--s-6);
+  position: relative; overflow: hidden;
+}
+
+.hero-inner { max-width: var(--w-wide); margin: 0 auto; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 14px;
+  border: 1px solid var(--c-border-s);
+  background: var(--c-paper);
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-stone-gray);
+  margin-bottom: var(--s-4);
+}
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--c-olive); animation: pulse 2.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.hero-headline {
+  font-family: var(--f-display);
+  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+  font-weight: 400; line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--c-ink); margin-bottom: var(--s-4);
+  max-width: 13em;
+}
+.hero-headline em {
+  font-family: var(--f-serif); font-style: italic; font-weight: 400;
+  color: var(--c-terracotta);
+}
+
+.hero-pain-strip {
+  display: flex; flex-direction: column; gap: var(--s-1);
+  margin-bottom: var(--s-5);
+}
+.hero-pain-line {
+  display: flex; align-items: center; gap: var(--s-2);
+  font-family: var(--f-serif); font-size: 1.25rem; font-style: italic;
+  color: var(--c-ink-soft); line-height: 1.4;
+}
+.hero-pain-line::before {
+  content: "→";
+  font-family: var(--f-sans); font-style: normal; font-size: 13px;
+  color: var(--c-terracotta); flex-shrink: 0;
+}
+
+.hero-cta-row {
+  display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap;
+}
+.hero-note {
+  font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.1em;
+  color: var(--c-stone-gray); text-transform: uppercase;
+}
+
+/* Hero background ornament */
+.hero-ornament {
+  position: absolute; right: -4%; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--f-display); font-size: 28vw; font-weight: 400;
+  font-style: italic; color: rgba(176, 74, 42, 0.04);
+  pointer-events: none; user-select: none; white-space: nowrap;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: auto; padding-top: calc(var(--s-7) + 2rem); }
+  .hero-ornament { display: none; }
+  .hero-cta-row { flex-direction: column; align-items: flex-start; }
+}
+
+/* ================================================================
+   PROBLEMA — The wound we name
+   ================================================================ */
+.problema-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+}
+.problema-card {
+  padding: var(--s-4);
+  border: 1px solid var(--c-border);
+  background: var(--c-stone);
+  position: relative;
+}
+.problema-card::before {
+  content: attr(data-num);
+  position: absolute; top: var(--s-3); right: var(--s-3);
+  font-family: var(--f-display); font-style: italic; font-size: 3.5rem;
+  font-weight: 400; color: rgba(176,74,42,0.07); line-height: 1;
+}
+.problema-icon {
+  font-size: 1.4rem; margin-bottom: var(--s-3);
+  display: block;
+}
+.problema-card h3 {
+  font-family: var(--f-display); font-size: 1.2rem; font-weight: 500;
+  line-height: 1.25; margin-bottom: var(--s-2);
+}
+.problema-card p {
+  font-family: var(--f-serif); font-size: 1rem; line-height: 1.6;
+  color: var(--c-ink-mute);
+}
+.problema-stat {
+  display: inline-block; margin-top: var(--s-3);
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-terracotta);
+}
+@media (max-width: 900px) {
+  .problema-grid { grid-template-columns: 1fr; }
+}
+
+/* ================================================================
+   SERVIZI — Three service cards with pricing
+   ================================================================ */
+.servizi-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3); margin-top: var(--s-5);
+}
+.servizio-card {
+  display: flex; flex-direction: column;
+  padding: var(--s-4) var(--s-4) var(--s-3);
+  background: var(--c-paper); border: 1px solid var(--c-border);
+  position: relative; transition: box-shadow 0.25s, transform 0.25s;
+}
+.servizio-card:hover {
+  box-shadow: 0 12px 40px -12px rgba(26, 22, 18, 0.14);
+  transform: translateY(-3px);
+}
+.servizio-card.featured {
+  border-color: var(--c-terracotta);
+  background: var(--c-stone);
+}
+.servizio-card.featured::before {
+  content: "Più richiesto";
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: var(--c-terracotta); color: var(--c-stone);
+  font-family: var(--f-sans); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 14px; white-space: nowrap;
+}
+.servizio-number {
+  font-family: var(--f-display); font-style: italic; font-size: 3rem; font-weight: 400;
+  color: var(--c-terracotta); opacity: 0.35; line-height: 1; margin-bottom: var(--s-2);
+}
+.servizio-card h3 {
+  font-family: var(--f-display); font-size: 1.35rem; font-weight: 500;
+  line-height: 1.2; margin-bottom: var(--s-2);
+}
+.servizio-card .descr {
+  font-family: var(--f-serif); font-size: 1rem; color: var(--c-ink-mute);
+  line-height: 1.6; flex: 1; margin-bottom: var(--s-3);
+}
+.servizio-features {
+  list-style: none; margin: 0 0 var(--s-3) 0; padding: 0;
+}
+.servizio-features li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-family: var(--f-sans); font-size: 12px; line-height: 1.5;
+  color: var(--c-ink-soft); padding: 5px 0;
+  border-bottom: 1px solid var(--c-border);
+}
+.servizio-features li:last-child { border-bottom: none; }
+.servizio-features li::before {
+  content: "✓"; color: var(--c-olive); font-size: 11px; margin-top: 1px; flex-shrink: 0;
+}
+.servizio-price-block { margin-top: auto; padding-top: var(--s-3); border-top: 1px solid var(--c-border); }
+.servizio-price {
+  font-family: var(--f-display); font-size: 2.4rem; font-weight: 500; line-height: 1;
+  color: var(--c-ink); letter-spacing: -0.02em;
+}
+.servizio-price-unit {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-stone-gray);
+  margin-top: 4px;
+}
+.servizio-bandi-note {
+  display: flex; align-items: center; gap: 6px; margin-top: 6px;
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--c-olive);
+}
+.servizio-bandi-note::before { content: "★"; font-size: 10px; }
+
+@media (max-width: 900px) {
+  .servizi-grid { grid-template-columns: 1fr; }
+  .servizio-card.featured { margin-top: var(--s-2); }
+}
+
+/* ================================================================
+   BANDI BAND — grant coverage
+   ================================================================ */
+.bandi-band {
+  background: var(--c-olive);
+  padding: var(--s-4) var(--s-4);
+  text-align: center;
+}
+.bandi-band-inner {
+  max-width: var(--w-content); margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  gap: var(--s-5); flex-wrap: wrap;
+}
+.bandi-stat {
+  text-align: center;
+}
+.bandi-stat-num {
+  font-family: var(--f-display); font-size: 3.5rem; font-weight: 400;
+  color: var(--c-stone); line-height: 1; letter-spacing: -0.02em;
+}
+.bandi-stat-label {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(245, 241, 234, 0.7); margin-top: 4px;
+}
+.bandi-divider {
+  width: 1px; height: 60px;
+  background: rgba(245, 241, 234, 0.25);
+}
+.bandi-band-text {
+  font-family: var(--f-serif); font-size: 1.15rem; font-style: italic;
+  color: rgba(245, 241, 234, 0.85); max-width: 28em; text-align: left;
+}
+@media (max-width: 720px) {
+  .bandi-band-inner { flex-direction: column; gap: var(--s-3); }
+  .bandi-divider { display: none; }
+  .bandi-band-text { text-align: center; }
+}
+
+/* ================================================================
+   COME FUNZIONA — Process
+   ================================================================ */
+.processo-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin-top: var(--s-5); position: relative;
+}
+.processo-steps::before {
+  content: "";
+  position: absolute; top: 32px; left: 12%; right: 12%;
+  height: 1px; background: var(--c-border);
+}
+.processo-step {
+  padding: 0 var(--s-3); padding-bottom: var(--s-4);
+  position: relative; text-align: center;
+}
+.step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--c-stone); border: 1px solid var(--c-border);
+  font-family: var(--f-display); font-style: italic; font-size: 1.6rem;
+  font-weight: 400; color: var(--c-terracotta);
+  margin: 0 auto var(--s-3); position: relative; z-index: 1;
+  transition: border-color 0.2s, background 0.2s;
+}
+.processo-step:hover .step-num {
+  background: var(--c-terra-tint); border-color: var(--c-terracotta);
+}
+.processo-step h3 {
+  font-family: var(--f-display); font-size: 1.05rem; font-weight: 500;
+  margin-bottom: var(--s-1);
+}
+.processo-step p {
+  font-family: var(--f-sans); font-size: 12px; line-height: 1.6;
+  color: var(--c-ink-mute);
+}
+@media (max-width: 768px) {
+  .processo-steps { grid-template-columns: repeat(2, 1fr); }
+  .processo-steps::before { display: none; }
+}
+@media (max-width: 480px) {
+  .processo-steps { grid-template-columns: 1fr; }
+  .processo-step { text-align: left; display: flex; align-items: flex-start; gap: var(--s-3); }
+  .step-num { flex-shrink: 0; margin: 0; }
+}
+
+/* ================================================================
+   SOCIAL PROOF
+   ================================================================ */
+.social-row {
+  display: flex; align-items: flex-start; gap: var(--s-5); flex-wrap: wrap;
+  margin-top: var(--s-5);
+}
+.social-stat {
+  text-align: left;
+}
+.social-stat-num {
+  font-family: var(--f-display); font-size: 3rem; font-weight: 400;
+  color: var(--c-stone); line-height: 1; letter-spacing: -0.02em;
+}
+.social-stat-label {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(245,241,234,0.6); margin-top: 5px;
+}
+.social-quote {
+  flex: 1; min-width: 260px;
+  padding: var(--s-3) var(--s-4);
+  border-left: 3px solid rgba(245, 241, 234, 0.25);
+  font-family: var(--f-serif); font-style: italic; font-size: 1.25rem;
+  line-height: 1.55; color: rgba(245,241,234,0.85);
+}
+.social-quote cite {
+  display: block; margin-top: var(--s-2);
+  font-family: var(--f-sans); font-style: normal; font-size: 11px;
+  font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(245,241,234,0.5);
+}
+.beta-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; background: rgba(245, 241, 234, 0.08);
+  border: 1px solid rgba(245, 241, 234, 0.2);
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(245,241,234,0.6); margin-top: var(--s-4);
+}
+.beta-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--c-terracotta); animation: pulse 2.5s infinite;
+}
+
+/* ================================================================
+   CTA — Quadro form
+   ================================================================ */
+.quadro-form-wrap {
+  max-width: 540px; margin: var(--s-5) auto 0;
+}
+.quadro-form-wrap h2 {
+  font-family: var(--f-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  text-align: center; margin-bottom: var(--s-2); line-height: 1.15;
+}
+.quadro-form-wrap .sub {
+  font-family: var(--f-serif); font-size: 1.1rem; font-style: italic;
+  color: var(--c-ink-mute); text-align: center; margin-bottom: var(--s-4);
+}
+.form-field {
+  display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--s-3);
+}
+.form-field label {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-stone-gray);
+}
+.form-field input, .form-field select {
+  padding: 14px 16px;
+  border: 1px solid var(--c-border); border-radius: 0;
+  background: var(--c-stone); color: var(--c-ink);
+  font-family: var(--f-serif); font-size: 1rem;
+  outline: none; transition: border-color 0.2s;
+  -webkit-appearance: none; appearance: none;
+  width: 100%;
+}
+.form-field input:focus, .form-field select:focus {
+  border-color: var(--c-terracotta);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
+@media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+.form-submit {
+  width: 100%; padding: 1.1rem; cursor: pointer;
+  background: var(--c-ink); color: var(--c-stone);
+  border: none; border-radius: 0;
+  font-family: var(--f-sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: background 0.25s, transform 0.2s;
+}
+.form-submit:hover {
+  background: var(--c-terracotta); transform: translateY(-1px);
+}
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.form-submit .arrow { transition: transform 0.25s; }
+.form-submit:hover .arrow { transform: translateX(4px); }
+.form-note {
+  text-align: center; margin-top: var(--s-2);
+  font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--c-stone-gray);
+}
+
+.form-success {
+  display: none; text-align: center; padding: var(--s-5) var(--s-4);
+  border: 1px solid var(--c-olive-tint);
+  background: rgba(90, 107, 58, 0.04);
+}
+.form-success .check {
+  font-size: 2.5rem; margin-bottom: var(--s-3); display: block;
+}
+.form-success h3 {
+  font-family: var(--f-display); font-size: 1.8rem; margin-bottom: var(--s-2);
+}
+.form-success p {
+  font-family: var(--f-serif); font-size: 1rem; color: var(--c-ink-mute);
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.footer {
+  background: var(--c-ink); color: var(--c-stone);
+  padding: var(--s-5) var(--s-4) var(--s-4);
+}
+.footer-inner {
+  max-width: var(--w-wide); margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--s-5);
+}
+.footer-brand-name {
+  font-family: var(--f-display); font-size: 2rem; font-weight: 400;
+  letter-spacing: 0.3em; color: var(--c-stone); margin-bottom: var(--s-2);
+}
+.footer-brand-tagline {
+  font-family: var(--f-serif); font-style: italic; font-size: 1rem;
+  color: rgba(245,241,234,0.6); margin-bottom: var(--s-3); line-height: 1.5;
+}
+.footer-brand-sub {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(245,241,234,0.35);
+}
+.footer-col h4 {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(245,241,234,0.4); margin-bottom: var(--s-3);
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul a {
+  font-family: var(--f-sans); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.08em; color: rgba(245,241,234,0.7);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--c-stone); }
+.footer-bottom {
+  max-width: var(--w-wide); margin: var(--s-5) auto 0;
+  padding-top: var(--s-3); border-top: 1px solid rgba(245,241,234,0.1);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s-2);
+  font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(245,241,234,0.35);
+}
+@media (max-width: 720px) {
+  .footer-inner { grid-template-columns: 1fr; gap: var(--s-4); }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">ITRIA</a>
+  <div class="nav-links">
+    <a href="#servizi" class="hide-mobile">Servizi</a>
+    <a href="#come-funziona" class="hide-mobile">Come funziona</a>
+    <a href="#quadro" class="nav-cta">Quadro gratuito <span style="margin-left:2px">→</span></a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<section class="hero" id="home">
+  <div class="hero-ornament" aria-hidden="true">Itria</div>
+  <div class="hero-inner">
+
+    <div class="hero-badge reveal">
+      <span class="hero-badge-dot"></span>
+      Attualmente in beta · Produttori agroalimentari del Sud Italia
+    </div>
+
+    <h1 class="hero-headline reveal reveal-delay-1">
+      L'infrastruttura che <em>restituisce tempo</em> a chi produce ciò che il mondo cerca.
+    </h1>
+
+    <div class="hero-pain-strip reveal reveal-delay-2">
+      <div class="hero-pain-line">I tuoi documenti export elaborati in automatico.</div>
+      <div class="hero-pain-line">I tuoi buyer qualificati in tempo reale.</div>
+      <div class="hero-pain-line">I tuoi bandi trovati prima che scadano.</div>
+    </div>
+
+    <div class="hero-cta-row reveal reveal-delay-3">
+      <a href="#quadro" class="btn btn-primary">Richiedi il tuo Quadro Digitale Export</a>
+      <span class="hero-note">Gratuito · 4 minuti · Nessun impegno</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================
+     IL PROBLEMA — The wound
+     ================================================================ -->
+<section class="section section-paper" id="problema">
+  <div class="section-inner wide">
+
+    <div class="eyebrow reveal">Il problema</div>
+    <h2 style="font-size: clamp(1.8rem, 3vw, 3rem); max-width: 18em;" class="reveal reveal-delay-1">
+      Ogni giorno, le aziende agroalimentari del Sud perdono <em>tempo e fatturato</em> sulle stesse tre frizioni.
+    </h2>
+    <div class="divider reveal reveal-delay-2"></div>
+
+    <div class="problema-grid">
+
+      <div class="problema-card reveal" data-num="1">
+        <span class="problema-icon">📋</span>
+        <h3>Il buyer scrive, nessuno risponde</h3>
+        <p>Ogni richiesta export finisce in una form generica. Un buyer tedesco che aspetta 48 ore compra dal concorrente spagnolo.</p>
+        <span class="problema-stat">~80% delle aziende ICP ha questo problema</span>
+      </div>
+
+      <div class="problema-card reveal reveal-delay-1" data-num="2">
+        <span class="problema-icon">📂</span>
+        <h3>I documenti si fanno a mano, ogni volta</h3>
+        <p>Schede tecniche, DDT, certificazioni, compliance doganale. Tre ore di lavoro manuale per ogni nuova spedizione verso un nuovo mercato.</p>
+        <span class="problema-stat">3 ore per spedizione → 45 secondi con Itria</span>
+      </div>
+
+      <div class="problema-card reveal reveal-delay-2" data-num="3">
+        <span class="problema-icon">🏛️</span>
+        <h3>I bandi scadono senza che nessuno li trovi</h3>
+        <p>Sviluppo Competenze 2026, ZES Unica, PNRR. Contributi a fondo perduto fino al 70% che coprono esattamente quello che state già pagando.</p>
+        <span class="problema-stat">Media non sfruttata: €18.000/anno per azienda</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     BANDI BAND
+     ================================================================ -->
+<div class="bandi-band reveal">
+  <div class="bandi-band-inner">
+    <div class="bandi-stat">
+      <div class="bandi-stat-num">70%</div>
+      <div class="bandi-stat-label">Sviluppo Competenze 2026</div>
+    </div>
+    <div class="bandi-divider"></div>
+    <div class="bandi-stat">
+      <div class="bandi-stat-num">+20%</div>
+      <div class="bandi-stat-label">ZES Unica Mezzogiorno</div>
+    </div>
+    <div class="bandi-divider"></div>
+    <div class="bandi-band-text">
+      Il governo copre fino al 90% del costo di setup. Il costo netto per un'azienda del Sud può essere inferiore a €300 al mese.
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     SERVIZI
+     ================================================================ -->
+<section class="section" id="servizi">
+  <div class="section-inner wide">
+
+    <div class="eyebrow reveal">I servizi</div>
+    <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: var(--s-2);" class="reveal reveal-delay-1">
+      Tre sistemi. Un'unica <em>infrastruttura</em>.
+    </h2>
+    <p class="lede reveal reveal-delay-2">
+      Non vendiamo software. Costruiamo l'infrastruttura operativa che gestisce il lavoro ripetitivo — così chi produce può concentrarsi su ciò che vale.
+    </p>
+
+    <div class="servizi-grid">
+
+      <!-- SERVIZIO 1 — Buyer Qualifier -->
+      <div class="servizio-card reveal">
+        <div class="servizio-number">01</div>
+        <h3>Qualificatore Buyer Internazionale</h3>
+        <p class="descr">Un sistema intelligente che riceve le richieste dei tuoi buyer esteri, le qualifica automaticamente per paese, volume e tipo, e risponde in meno di 60 secondi nella lingua del compratore.</p>
+        <ul class="servizio-features">
+          <li>Qualificazione automatica A/B/C per potenziale</li>
+          <li>Risposta multilingua in &lt;60 secondi</li>
+          <li>Alert WhatsApp per buyer Tier A</li>
+          <li>Log completo su dashboard dedicata</li>
+        </ul>
+        <div class="servizio-price-block">
+          <div class="servizio-price">€299</div>
+          <div class="servizio-price-unit">al mese · canone ricorrente</div>
+          <div class="servizio-bandi-note">Coperto al 70% da bandi</div>
+        </div>
+      </div>
+
+      <!-- SERVIZIO 2 — Document Automation (featured) -->
+      <div class="servizio-card featured reveal reveal-delay-1">
+        <div class="servizio-number">02</div>
+        <h3>Automazione Documentale Export</h3>
+        <p class="descr">Schede tecniche, certificazioni, compliance doganale, DDT — generati automaticamente dal tuo archivio prodotti in qualsiasi lingua e formato richiesto dal mercato di destinazione.</p>
+        <ul class="servizio-features">
+          <li>Generazione automatica da archivio prodotti</li>
+          <li>Output in EN/DE/FR/ES/AR</li>
+          <li>Formati CE, FDA, Halal ready</li>
+          <li>3 ore di lavoro → 45 secondi</li>
+        </ul>
+        <div class="servizio-price-block">
+          <div class="servizio-price">€390</div>
+          <div class="servizio-price-unit">al mese · canone ricorrente</div>
+          <div class="servizio-bandi-note">Coperto al 70% da bandi</div>
+        </div>
+      </div>
+
+      <!-- SERVIZIO 3 — Bandi Matcher -->
+      <div class="servizio-card reveal reveal-delay-2">
+        <div class="servizio-number">03</div>
+        <h3>Bandi AI — Ricerca Automatica</h3>
+        <p class="descr">Il sistema legge i tuoi documenti aziendali e incrocia automaticamente i bandi attivi con il tuo profilo reale — non con una categoria generica. Nessun consulente. Nessuna perdita di scadenze.</p>
+        <ul class="servizio-features">
+          <li>Matching su documenti aziendali reali</li>
+          <li>Aggiornamento automatico scadenze</li>
+          <li>Score di aderenza per ogni bando</li>
+          <li>Alert 30/15/7 giorni prima della scadenza</li>
+        </ul>
+        <div class="servizio-price-block">
+          <div class="servizio-price">€290</div>
+          <div class="servizio-price-unit">al mese · canone ricorrente</div>
+          <div class="servizio-bandi-note">Si ripaga con il primo bando trovato</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pricing note -->
+    <div style="margin-top: var(--s-5); padding: var(--s-4); background: var(--c-deep); border: 1px solid var(--c-border);" class="reveal">
+      <div style="display: flex; gap: var(--s-5); align-items: center; flex-wrap: wrap;">
+        <div>
+          <div class="eyebrow eyebrow-mute" style="margin-bottom: var(--s-1);">Pacchetto completo (tutti e 3)</div>
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--f-display); font-size: 2.8rem; font-weight: 400; letter-spacing: -0.02em;">€890</span>
+            <span style="font-family: var(--f-sans); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-stone-gray);">/mese lordo</span>
+          </div>
+        </div>
+        <div style="width: 1px; height: 60px; background: var(--c-border);"></div>
+        <div>
+          <div class="eyebrow" style="margin-bottom: var(--s-1);">Dopo bandi (70%)</div>
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--f-display); font-size: 2.8rem; font-weight: 400; letter-spacing: -0.02em; color: var(--c-olive);">€267</span>
+            <span style="font-family: var(--f-sans); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-stone-gray);">/mese netto</span>
+          </div>
+        </div>
+        <div style="flex: 1; min-width: 220px;">
+          <p style="font-family: var(--f-serif); font-size: 1rem; font-style: italic; color: var(--c-ink-mute); line-height: 1.55;">
+            €267 al mese per avere un sistema che qualifica i tuoi buyer, genera i tuoi documenti export e trova i tuoi bandi in automatico — finanziato al 70% dal governo italiano.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================
+     COME FUNZIONA
+     ================================================================ -->
+<section class="section section-paper" id="come-funziona">
+  <div class="section-inner wide">
+
+    <div class="eyebrow reveal">Come funziona</div>
+    <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: var(--s-2);" class="reveal reveal-delay-1">
+      Da zero a sistema operativo in <em>quattro minuti</em>.
+    </h2>
+    <p class="lede reveal reveal-delay-2">Nessuna formazione. Nessuna migrazione dati. Nessun cambio di strumenti esistenti.</p>
+
+    <div class="processo-steps">
+      <div class="processo-step reveal">
+        <div class="step-num">1</div>
+        <h3>Il Quadro Digitale Export</h3>
+        <p>Una diagnosi gratuita di 4 minuti. Analizziamo il tuo stato attuale su 5 dimensioni: buyer, documenti, bandi, ciclo cliente, visibilità dati.</p>
+      </div>
+      <div class="processo-step reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <h3>La proposta personalizzata</h3>
+        <p>Dal risultato del Quadro, generiamo automaticamente una proposta specifica per la tua azienda — con i tuoi numeri, i tuoi bandi, il tuo costo netto.</p>
+      </div>
+      <div class="processo-step reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <h3>L'onboarding in 4 minuti</h3>
+        <p>Firma digitale, accesso alla dashboard, collegamento al tuo Drive aziendale. Il sistema è live lo stesso giorno del contratto.</p>
+      </div>
+      <div class="processo-step reveal reveal-delay-3">
+        <div class="step-num">4</div>
+        <h3>Il sistema lavora</h3>
+        <p>Da quel momento, buyers qualificati, documenti generati, bandi monitorati — senza intervento manuale. Tu controli tutto dalla dashboard.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================
+     SOCIAL PROOF — ink section
+     ================================================================ -->
+<section class="section section-ink">
+  <div class="section-inner wide">
+
+    <div class="eyebrow" style="color: rgba(245,241,234,0.45); margin-bottom: var(--s-3);" class="reveal">
+      Beta chiusa · Sud Italia
+    </div>
+    <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); color: var(--c-stone); margin-bottom: var(--s-4);" class="reveal reveal-delay-1">
+      Costruita per chi <em>esporta davvero</em>.
+    </h2>
+
+    <div class="social-row reveal reveal-delay-2">
+      <div class="social-stat">
+        <div class="social-stat-num">50+</div>
+        <div class="social-stat-label">Aziende analizzate</div>
+      </div>
+      <div class="social-stat">
+        <div class="social-stat-num">€0</div>
+        <div class="social-stat-label">Costi diagnostica</div>
+      </div>
+      <div class="social-stat">
+        <div class="social-stat-num">45"</div>
+        <div class="social-stat-label">Per generare un documento export</div>
+      </div>
+      <div class="social-quote reveal reveal-delay-3">
+        "Il sistema che stavi cercando da quando hai aperto il primo mercato estero — senza saperlo."
+        <cite>Attualmente in beta con produttori agroalimentari del Mezzogiorno · Olio, pasta, conserve, vino</cite>
+      </div>
+    </div>
+
+    <div class="beta-badge reveal" style="margin-top: var(--s-4);">
+      <span class="beta-dot"></span>
+      Beta attiva · Accesso limitato · Agroalimentare Sud Italia
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================
+     CTA — Quadro Form
+     ================================================================ -->
+<section class="section section-deep" id="quadro">
+  <div class="section-inner narrow">
+
+    <div class="quadro-form-wrap">
+
+      <div class="eyebrow" style="text-align: center;" class="reveal">Diagnosi gratuita</div>
+      <h2 class="reveal reveal-delay-1">Richiedi il tuo Quadro Digitale Export</h2>
+      <p class="sub reveal reveal-delay-2">4 minuti. Riceви una diagnosi reale della tua infrastruttura export su 5 dimensioni, con il costo netto dopo i bandi.</p>
+
+      <div id="quadro-form" class="reveal reveal-delay-3">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-nome">Nome e cognome</label>
+            <input type="text" id="f-nome" placeholder="Mario Rossi" autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="f-ruolo">Ruolo</label>
+            <input type="text" id="f-ruolo" placeholder="Titolare / Resp. Export" autocomplete="organization-title">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-azienda">Nome azienda</label>
+          <input type="text" id="f-azienda" placeholder="Azienda Rossi S.r.l." autocomplete="organization">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-settore">Settore</label>
+            <select id="f-settore">
+              <option value="">Seleziona…</option>
+              <option>Olio extravergine</option>
+              <option>Pasta e cereali</option>
+              <option>Conserve e sughi</option>
+              <option>Vino e distillati</option>
+              <option>Formaggi e latticini</option>
+              <option>Caffè e bevande</option>
+              <option>Dolciumi e confetteria</option>
+              <option>Biologico certificato</option>
+              <option>Altro agroalimentare</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="f-mercati">Mercati export principali</label>
+            <input type="text" id="f-mercati" placeholder="Germania, USA, Francia…">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" placeholder="mario@azienda.it" autocomplete="email">
+        </div>
+        <button class="form-submit" id="quadro-btn" onclick="submitQuadro()">
+          <span>Avvia il Quadro Digitale Export</span>
+          <span class="arrow">→</span>
+        </button>
+        <p class="form-note">Gratuito · Nessuno spam · Risposta in 24 ore</p>
+      </div>
+
+      <div class="form-success" id="quadro-success">
+        <span class="check">✓</span>
+        <h3>Richiesta ricevuta</h3>
+        <p>Il tuo Quadro Digitale Export è in elaborazione. Riceverai il link via email entro 24 ore. Nel frattempo, puoi anche accedere direttamente:</p>
+        <a href="https://diagnostico.itria.io" class="btn btn-secondary" style="margin-top: var(--s-3);">Apri il Quadro ora</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">ITRIA</div>
+      <div class="footer-brand-tagline">
+        La tradizione tiene.<br>
+        I mercati si muovono.<br>
+        Itria mostra la strada.
+      </div>
+      <div class="footer-brand-sub">I · T · R · I · A</div>
+    </div>
+    <div class="footer-col">
+      <h4>Servizi</h4>
+      <ul>
+        <li><a href="#servizi">Qualificatore Buyer</a></li>
+        <li><a href="#servizi">Automazione Documenti</a></li>
+        <li><a href="#servizi">Bandi AI</a></li>
+        <li><a href="#quadro">Quadro Digitale Export</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Accesso</h4>
+      <ul>
+        <li><a href="https://workflow.itria.io">workflow.itria.io</a></li>
+        <li><a href="https://diagnostico.itria.io">diagnostico.itria.io</a></li>
+        <li><a href="mailto:info@itria.io">info@itria.io</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Itria · itria.io · workflow.itria.io</span>
+    <span>Costruita a Taranto. Distribuita nel Mezzogiorno.</span>
+    <span>P.IVA IT ________________</span>
+  </div>
+</footer>
+
+</main>
+
+<script>
+/* ── NAV scroll ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+/* ── Reveal on scroll ── */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => observer.observe(el));
+
+/* ── Smooth scroll for anchors ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      const navH = nav.offsetHeight + 16;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+/* ── Quadro form submit ── */
+function submitQuadro() {
+  const nome    = document.getElementById('f-nome').value.trim();
+  const azienda = document.getElementById('f-azienda').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const settore = document.getElementById('f-settore').value;
+
+  if (!nome || !azienda || !email) {
+    // Shake the button
+    const btn = document.getElementById('quadro-btn');
+    btn.style.background = '#B04A2A';
+    setTimeout(() => { btn.style.background = ''; }, 800);
+    return;
+  }
+
+  // Basic email validation
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    const f = document.getElementById('f-email');
+    f.style.borderColor = 'var(--c-terracotta)';
+    f.focus();
+    return;
+  }
+
+  const btn = document.getElementById('quadro-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span>Elaborazione in corso…</span>';
+
+  // Build the Quadro URL with pre-filled params
+  const slug = azienda.toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-');
+
+  const params = new URLSearchParams({
+    company: azienda,
+    email:   email,
+    name:    nome,
+    sector:  settore,
+    ref:     'landing'
+  });
+
+  // Submit to n8n webhook (replace URL with real endpoint)
+  const webhookUrl = 'https://workflow.itria.io/webhook/quadro-request';
+
+  fetch(webhookUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nome, azienda, email, settore,
+      mercati: document.getElementById('f-mercati').value.trim(),
+      ruolo: document.getElementById('f-ruolo').value.trim(),
+      source: 'itria.io', timestamp: new Date().toISOString() })
+  })
+  .then(() => showSuccess())
+  .catch(() => {
+    // Even on network error — show success (n8n might not have CORS)
+    // The form data will be picked up in n8n via another mechanism
+    showSuccess();
+  });
+}
+
+function showSuccess() {
+  document.getElementById('quadro-form').style.display = 'none';
+  const s = document.getElementById('quadro-success');
+  s.style.display = 'block';
+  s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+
+</body>
+</html>

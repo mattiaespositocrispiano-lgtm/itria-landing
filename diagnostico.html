@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itria — Diagnostico Digitale per esportatori agroalimentari del Sud Italia</title>
+<meta name="description" content="Audit gratuito di 5 minuti. 20 domande, 5 dimensioni operative, un punteggio, tre priorità. Per chi esporta eccellenza dal Sud Italia.">
+<meta name="theme-color" content="#F5F1EA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ======================================================================
+   ITRIA — DIAGNOSTICO DIGITALE
+   Brand-locked. Palette Valle d'Itria.
+   Editorial Italian design — Bodoni + Garamond + Archivo
+   ====================================================================== */
+
+:root {
+  /* Palette — Valle d'Itria */
+  --c-stone:        #F5F1EA;
+  --c-paper:        #FBF8F2;
+  --c-ink:          #1A1612;
+  --c-ink-soft:     #4A3F33;
+  --c-ink-mute:     #6E5840;
+  --c-terracotta:   #B04A2A;
+  --c-terracotta-d: #8C3A1F;
+  --c-terra-tint:   #EFD9CD;
+  --c-olive:        #5A6B3A;
+  --c-olive-tint:   #DDE2C8;
+  --c-adriatic:     #2A5670;
+  --c-adriatic-tint:#CFDAE2;
+  --c-stone-gray:   #8E8676;
+  --c-border:       #D9D2C3;
+  --c-border-s:     #B8AE9B;
+
+  /* Typography */
+  --f-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+  --f-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --f-sans:    'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Scale */
+  --s-0: 0.25rem;
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2.5rem;
+  --s-5: 4rem;
+  --s-6: 6rem;
+  --s-7: 9rem;
+
+  /* Layout */
+  --w-narrow:  640px;
+  --w-content: 880px;
+  --w-wide:    1080px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--f-serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--c-ink);
+  background: var(--c-stone);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle paper texture via CSS */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(176, 74, 42, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(42, 86, 112, 0.025) 0%, transparent 50%);
+}
+
+main { position: relative; z-index: 1; }
+
+/* ============ BRAND BAR ============ */
+
+.brand-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--s-2) var(--s-4);
+  background: rgba(245, 241, 234, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--c-border);
+  font-family: var(--f-sans);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brand-logo {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.32em;
+  color: var(--c-ink);
+  text-transform: none;
+}
+
+.brand-meta {
+  color: var(--c-ink-mute);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .brand-bar { padding: var(--s-2); }
+  .brand-meta { display: none; }
+}
+
+/* ============ SCREEN SYSTEM ============ */
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: calc(var(--s-7) + var(--s-2)) var(--s-4) var(--s-6);
+}
+
+.screen.active {
+  display: block;
+  animation: fadeUp 0.7s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ TYPOGRAPHY ============ */
+
+.eyebrow {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-terracotta);
+  margin-bottom: var(--s-3);
+}
+
+.eyebrow-mute { color: var(--c-stone-gray); }
+
+h1 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.012em;
+  color: var(--c-ink);
+  margin-bottom: var(--s-4);
+}
+
+h1 em {
+  font-style: italic;
+  font-family: var(--f-serif);
+  font-weight: 400;
+  color: var(--c-terracotta);
+}
+
+h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  margin-bottom: var(--s-3);
+}
+
+h3 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--s-2);
+}
+
+.lede {
+  font-family: var(--f-serif);
+  font-size: 1.35rem;
+  line-height: 1.55;
+  color: var(--c-ink-soft);
+  margin-bottom: var(--s-4);
+  max-width: 38em;
+}
+
+.lede em { font-style: italic; }
+
+.footnote {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-stone-gray);
+  letter-spacing: 0.02em;
+  margin-top: var(--s-3);
+}
+
+/* ============ BUTTONS ============ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 1.1rem 2.2rem;
+  background: var(--c-ink);
+  color: var(--c-stone);
+  border: none;
+  border-radius: 0;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: "→";
+  font-family: var(--f-display);
+  font-size: 16px;
+  letter-spacing: 0;
+  transition: transform 0.3s;
+}
+
+.btn-primary:hover {
+  background: var(--c-terracotta);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px -8px rgba(176, 74, 42, 0.4);
+}
+
+.btn-primary:hover::after { transform: translateX(4px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: 0.7rem 1.4rem;
+  background: transparent;
+  color: var(--c-ink-soft);
+  border: 1px solid var(--c-border-s);
+  border-radius: 0;
+  font-family: var(--f-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--c-paper);
+  border-color: var(--c-ink);
+  color: var(--c-ink);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ============ SCREEN 1 — INTRO ============ */
+
+.intro {
+  max-width: var(--w-content);
+  margin: 0 auto;
+}
+
+.intro-hero {
+  padding: var(--s-5) 0 var(--s-6);
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: var(--s-5);
+}
+
+.intro-meta {
+  display: flex;
+  gap: var(--s-3);
+  margin-bottom: var(--s-3);
+  align-items: center;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+}
+
+.intro-meta .dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--c-terracotta);
+}
+
+.dimensions-preview {
+  margin-top: var(--s-5);
+}
+
+.dimensions-preview h3 {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+  margin-bottom: var(--s-3);
+}
+
+.dim-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--s-3) var(--s-4);
+}
+
+.dim-list li {
+  padding: var(--s-2) 0;
+  border-top: 1px solid var(--c-border);
+  display: flex;
+  gap: var(--s-2);
+  align-items: baseline;
+}
+
+.dim-list .num {
+  font-family: var(--f-display);
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--c-terracotta);
+  letter-spacing: 0.05em;
+  min-width: 1.5em;
+}
+
+.dim-list .name {
+  font-family: var(--f-serif);
+  font-size: 1.05rem;
+  color: var(--c-ink-soft);
+  line-height: 1.35;
+}
+
+.intro-rationale {
+  margin-top: var(--s-5);
+  padding: var(--s-4);
+  background: var(--c-paper);
+  border-left: 3px solid var(--c-terracotta);
+}
+
+.intro-rationale p {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--c-ink-soft);
+}
+
+.intro-rationale p + p { margin-top: var(--s-2); }
+
+/* ============ SCREEN 2 — QUIZ ============ */
+
+.quiz {
+  max-width: var(--w-narrow);
+  margin: 0 auto;
+}
+
+.progress-shell {
+  padding: var(--s-3) 0 var(--s-4);
+  margin-bottom: var(--s-4);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.progress-bar-wrap {
+  height: 1px;
+  background: var(--c-border);
+  margin-bottom: var(--s-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  top: -1px; left: 0;
+  height: 3px;
+  background: var(--c-terracotta);
+  width: 0%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+}
+
+.progress-text .dim-name {
+  color: var(--c-terracotta);
+  font-weight: 600;
+}
+
+.question-card {
+  padding: var(--s-3) 0 var(--s-5);
+  animation: questionEnter 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes questionEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.q-number {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--c-terra-tint);
+  margin-bottom: var(--s-2);
+  letter-spacing: -0.02em;
+}
+
+.q-text {
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--c-ink);
+  margin-bottom: var(--s-4);
+  letter-spacing: -0.005em;
+}
+
+.q-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.q-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  background: var(--c-paper);
+  border: 1px solid var(--c-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  font-family: var(--f-serif);
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: var(--c-ink-soft);
+  text-align: left;
+  width: 100%;
+}
+
+.q-option:hover {
+  border-color: var(--c-ink);
+  background: var(--c-stone);
+  color: var(--c-ink);
+  transform: translateX(2px);
+}
+
+.q-option.selected {
+  border-color: var(--c-terracotta);
+  background: var(--c-terra-tint);
+  color: var(--c-ink);
+}
+
+.q-option .marker {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--c-stone-gray);
+  margin-top: 0.25em;
+  min-width: 1.2em;
+}
+
+.q-option.selected .marker {
+  color: var(--c-terracotta);
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--c-border);
+  gap: var(--s-2);
+}
+
+.quiz-nav .nav-info {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+}
+
+/* ============ SCREEN 3 — CAPTURE ============ */
+
+.capture {
+  max-width: var(--w-narrow);
+  margin: 0 auto;
+  padding: var(--s-5) 0;
+}
+
+.capture .lede { margin-bottom: var(--s-5); }
+
+.capture-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+}
+
+.field input,
+.field select {
+  font-family: var(--f-serif);
+  font-size: 1.15rem;
+  padding: 0.8rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--c-border-s);
+  color: var(--c-ink);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%236E5840' stroke-width='1.2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--c-terracotta);
+}
+
+.field input::placeholder {
+  color: var(--c-stone-gray);
+  opacity: 0.6;
+}
+
+.capture-form button { margin-top: var(--s-3); align-self: flex-start; }
+
+.capture-privacy {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--c-stone-gray);
+  margin-top: var(--s-3);
+  line-height: 1.5;
+}
+
+/* ============ SCREEN 4 — REPORT ============ */
+
+.report { max-width: var(--w-wide); margin: 0 auto; }
+
+.report-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--s-5);
+  align-items: end;
+  padding: var(--s-4) 0 var(--s-5);
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: var(--s-5);
+}
+
+@media (max-width: 880px) {
+  .report-hero { grid-template-columns: 1fr; gap: var(--s-4); }
+}
+
+.score-block { }
+
+.score-label {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+  margin-bottom: var(--s-2);
+}
+
+.score-number {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(6rem, 14vw, 11rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--c-ink);
+  display: flex;
+  align-items: baseline;
+}
+
+.score-number .denom {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 0.32em;
+  color: var(--c-stone-gray);
+  margin-left: 0.2em;
+  letter-spacing: 0;
+}
+
+.score-zone {
+  margin-top: var(--s-2);
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--c-terracotta);
+  font-weight: 400;
+}
+
+.score-zone-desc {
+  font-family: var(--f-serif);
+  font-size: 1.1rem;
+  color: var(--c-ink-soft);
+  margin-top: var(--s-2);
+  max-width: 32em;
+  line-height: 1.5;
+}
+
+/* RADAR CHART */
+.radar-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radar {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+.radar .axis-line {
+  stroke: var(--c-border-s);
+  stroke-width: 0.5;
+}
+
+.radar .grid-poly {
+  fill: none;
+  stroke: var(--c-border);
+  stroke-width: 0.5;
+  stroke-dasharray: 2 3;
+}
+
+.radar .grid-poly.outer {
+  stroke: var(--c-border-s);
+  stroke-dasharray: none;
+}
+
+.radar .data-poly {
+  fill: rgba(176, 74, 42, 0.18);
+  stroke: var(--c-terracotta);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.radar .data-point {
+  fill: var(--c-terracotta);
+  stroke: var(--c-paper);
+  stroke-width: 2;
+}
+
+.radar .axis-label {
+  font-family: var(--f-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: var(--c-ink-soft);
+}
+
+.radar .axis-value {
+  font-family: var(--f-display);
+  font-size: 14px;
+  font-weight: 500;
+  fill: var(--c-terracotta);
+}
+
+/* DIMENSION BREAKDOWN */
+.dim-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+
+.dim-card {
+  padding: var(--s-3);
+  background: var(--c-paper);
+  border-top: 2px solid var(--c-border);
+  position: relative;
+}
+
+.dim-card .dim-num {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--c-stone-gray);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--s-1);
+}
+
+.dim-card .dim-name {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--c-ink);
+  margin-bottom: var(--s-2);
+  line-height: 1.2;
+}
+
+.dim-card .dim-score {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-1);
+  margin-bottom: var(--s-1);
+}
+
+.dim-card .dim-score .num {
+  font-family: var(--f-display);
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.dim-card .dim-score .pct {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-stone-gray);
+  letter-spacing: 0.1em;
+}
+
+.dim-card .dim-bar-wrap {
+  height: 2px;
+  background: var(--c-border);
+  margin-bottom: var(--s-2);
+  position: relative;
+}
+
+.dim-card .dim-bar {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  transition: width 1.2s 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dim-card[data-zone="critical"]    .dim-bar { background: #C44E2E; }
+.dim-card[data-zone="vulnerable"]  .dim-bar { background: #C9893A; }
+.dim-card[data-zone="competitive"] .dim-bar { background: #5A6B3A; }
+.dim-card[data-zone="advanced"]    .dim-bar { background: #2A5670; }
+
+.dim-card .dim-zone {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.dim-card[data-zone="critical"]    .dim-zone { color: #C44E2E; }
+.dim-card[data-zone="vulnerable"]  .dim-zone { color: #B07020; }
+.dim-card[data-zone="competitive"] .dim-zone { color: #5A6B3A; }
+.dim-card[data-zone="advanced"]    .dim-zone { color: #2A5670; }
+
+/* INTERVENTIONS */
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--c-border);
+}
+
+.section-title .num {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--c-terracotta);
+  font-weight: 400;
+}
+
+.interventions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+
+.intervention {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: var(--s-3);
+  padding: var(--s-3) 0;
+  border-top: 1px solid var(--c-border);
+}
+
+@media (max-width: 640px) {
+  .intervention { grid-template-columns: 1fr; gap: var(--s-2); }
+}
+
+.intervention .priority {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--c-terracotta);
+}
+
+.intervention .body { }
+
+.intervention .title {
+  font-family: var(--f-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--c-ink);
+  margin-bottom: var(--s-1);
+  line-height: 1.2;
+}
+
+.intervention .desc {
+  font-family: var(--f-serif);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--c-ink-soft);
+}
+
+.intervention .hours-tag {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-olive);
+  white-space: nowrap;
+  align-self: start;
+  padding-top: 0.4rem;
+}
+
+.intervention .hours-tag .num {
+  font-family: var(--f-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--c-olive);
+  margin-right: 0.2em;
+  font-style: italic;
+}
+
+/* HOURS BLOCK */
+.hours-block {
+  margin: var(--s-5) 0;
+  padding: var(--s-5) var(--s-4);
+  background: var(--c-paper);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--s-4);
+  align-items: center;
+  border-left: 4px solid var(--c-olive);
+}
+
+@media (max-width: 720px) {
+  .hours-block { grid-template-columns: 1fr; gap: var(--s-3); }
+}
+
+.hours-display { }
+
+.hours-display .label {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+  margin-bottom: var(--s-1);
+}
+
+.hours-display .value {
+  font-family: var(--f-display);
+  font-size: clamp(4rem, 9vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--c-olive);
+}
+
+.hours-display .unit {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 0.3em;
+  color: var(--c-stone-gray);
+  letter-spacing: 0;
+  margin-left: 0.2em;
+}
+
+.hours-context {
+  font-family: var(--f-serif);
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--c-ink-soft);
+  font-style: italic;
+}
+
+/* CTA BLOCK */
+.cta-block {
+  margin: var(--s-6) 0 var(--s-4);
+  padding: var(--s-5) var(--s-4);
+  background: var(--c-ink);
+  color: var(--c-stone);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(176, 74, 42, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-block-content { position: relative; z-index: 1; max-width: 36em; }
+
+.cta-block .eyebrow { color: var(--c-terra-tint); }
+
+.cta-block h2 {
+  color: var(--c-stone);
+  margin-bottom: var(--s-3);
+}
+
+.cta-block h2 em { color: var(--c-terra-tint); }
+
+.cta-block p {
+  font-family: var(--f-serif);
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: rgba(245, 241, 234, 0.82);
+  margin-bottom: var(--s-4);
+}
+
+.cta-block .btn-primary {
+  background: var(--c-terracotta);
+  color: var(--c-stone);
+}
+
+.cta-block .btn-primary:hover {
+  background: var(--c-stone);
+  color: var(--c-ink);
+}
+
+.cta-context {
+  display: flex;
+  gap: var(--s-3);
+  margin-top: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.cta-context .item {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 234, 0.6);
+  display: flex;
+  gap: var(--s-1);
+  align-items: center;
+}
+
+.cta-context .item::before {
+  content: "✓";
+  color: var(--c-terra-tint);
+}
+
+/* ============ FOOTER ============ */
+
+footer {
+  border-top: 1px solid var(--c-border);
+  padding: var(--s-5) var(--s-4) var(--s-4);
+  text-align: center;
+  background: var(--c-paper);
+}
+
+.closing-line {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: var(--c-ink);
+  margin-bottom: var(--s-3);
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+}
+
+.brand-footer {
+  font-family: var(--f-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+  margin-bottom: var(--s-1);
+}
+
+.brand-footer-sub {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--c-stone-gray);
+}
+
+.restart {
+  margin-top: var(--s-3);
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-stone-gray);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.restart:hover { color: var(--c-terracotta); }
+
+/* ============ PRINT ============ */
+
+@media print {
+  body { background: white; color: black; }
+  .brand-bar, .cta-block, .restart, .quiz-nav, #screen-intro, #screen-quiz, #screen-capture { display: none !important; }
+  .screen.active { padding: 0 !important; }
+  body::before { display: none; }
+  .report-hero { padding-top: 0; }
+  footer { background: none; border-top: 1px solid #999; }
+}
+</style>
+</head>
+<body>
+
+<header class="brand-bar">
+  <div class="brand-logo">ITRIA</div>
+  <div class="brand-meta">Diagnostico Digitale</div>
+</header>
+
+<main>
+
+  <!-- ============ SCREEN 1 — INTRO ============ -->
+  <section id="screen-intro" class="screen active">
+    <div class="intro">
+      <div class="intro-hero">
+        <div class="intro-meta">
+          <span>Audit gratuito</span>
+          <span class="dot"></span>
+          <span>5 minuti</span>
+          <span class="dot"></span>
+          <span>20 domande</span>
+        </div>
+        <h1>Una mappa precisa <em>di dove siete oggi.</em></h1>
+        <p class="lede">Costruito per esportatori agroalimentari del Sud Italia. Misura cinque dimensioni operative — quelle che separano chi cresce da chi resiste alla pressione del mercato. Alla fine: un punteggio, un grafico delle vostre dimensioni, e tre interventi prioritari per i prossimi novanta giorni.</p>
+        <button class="btn-primary" onclick="startQuiz()">Inizia il diagnostico</button>
+        <p class="footnote">Nessuna registrazione richiesta per cominciare. I vostri dati restano vostri.</p>
+      </div>
+
+      <div class="dimensions-preview">
+        <h3>Le cinque dimensioni misurate</h3>
+        <ol class="dim-list">
+          <li><span class="num">I.</span><span class="name">Gestione buyer internazionali</span></li>
+          <li><span class="num">II.</span><span class="name">Documentazione export</span></li>
+          <li><span class="num">III.</span><span class="name">Ciclo cliente e distributori</span></li>
+          <li><span class="num">IV.</span><span class="name">Capacità operativa</span></li>
+          <li><span class="num">V.</span><span class="name">Visibilità sui dati</span></li>
+        </ol>
+      </div>
+
+      <div class="intro-rationale">
+        <p>Le eccellenze del Sud Italia non hanno mai avuto un problema di qualità. Hanno un problema di tempo.</p>
+        <p>Mentre il mondo compra italiano a prezzi premium, chi quel cibo lo produce davvero passa le giornate a rispondere a mail in tre lingue, inseguire distributori che dimenticano gli ordini, compilare documenti doganali a mano. La tradizione non muore per mancanza di valore. Muore per saturazione operativa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2 — QUIZ ============ -->
+  <section id="screen-quiz" class="screen">
+    <div class="quiz">
+      <div class="progress-shell">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="progress-text">
+          <span>Domanda <span id="q-current-num">1</span> di 20</span>
+          <span class="dim-name" id="q-dim-name">Gestione buyer internazionali</span>
+        </div>
+      </div>
+
+      <div class="question-card" id="question-card">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn-secondary" id="btn-back" onclick="prevQuestion()">← Indietro</button>
+        <span class="nav-info" id="nav-info"></span>
+        <button class="btn-secondary" id="btn-next" onclick="nextQuestion()" disabled>Continua →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 3 — CAPTURE ============ -->
+  <section id="screen-capture" class="screen">
+    <div class="capture">
+      <p class="eyebrow">Quasi pronto</p>
+      <h1>Personalizziamo <em>il vostro report.</em></h1>
+      <p class="lede">Due informazioni per generare un rapporto a vostro nome, con benchmark di settore e priorità su misura. <em>Niente newsletter, niente automazioni di marketing.</em></p>
+
+      <form class="capture-form" id="capture-form" onsubmit="submitCapture(event)">
+        <div class="field">
+          <label for="capt-name">Nome e cognome</label>
+          <input type="text" id="capt-name" name="name" required placeholder="Mario Rossi">
+        </div>
+        <div class="field">
+          <label for="capt-company">Azienda</label>
+          <input type="text" id="capt-company" name="company" required placeholder="Azienda Agricola Rossi S.r.l.">
+        </div>
+        <div class="field">
+          <label for="capt-email">Email professionale</label>
+          <input type="email" id="capt-email" name="email" required placeholder="mario@aziendarossi.it">
+        </div>
+        <div class="field">
+          <label for="capt-role">Ruolo in azienda</label>
+          <select id="capt-role" name="role" required>
+            <option value="">Selezionare —</option>
+            <option value="titolare">Titolare / Patriarca</option>
+            <option value="erede">Figlio / Erede operativo</option>
+            <option value="export">Responsabile export</option>
+            <option value="amministrazione">Responsabile amministrazione</option>
+            <option value="general">General manager / Direttore</option>
+            <option value="altro">Altro</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary">Vedi i risultati</button>
+        <p class="capture-privacy">I dati inseriti vengono utilizzati esclusivamente per generare e — su vostra richiesta — inviarvi una copia del report. Non condividiamo informazioni con terzi. Potete cancellarli in qualsiasi momento scrivendo a info@itria.it.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 4 — REPORT ============ -->
+  <section id="screen-report" class="screen">
+    <div class="report">
+
+      <div class="report-hero">
+        <div>
+          <p class="eyebrow">Diagnostico per <span id="report-company">la vostra azienda</span></p>
+          <div class="score-block">
+            <p class="score-label">Indice di prontezza digitale</p>
+            <div class="score-number"><span id="score-num">0</span><span class="denom">/100</span></div>
+            <div class="score-zone" id="score-zone">Zona —</div>
+            <p class="score-zone-desc" id="score-zone-desc"></p>
+          </div>
+        </div>
+        <div class="radar-wrap">
+          <svg class="radar" id="radar-svg" viewBox="-200 -200 400 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- Drawn by JS -->
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <span class="num">I.</span>
+        <h2>Le cinque dimensioni, dettagliate</h2>
+      </div>
+
+      <div class="dim-breakdown" id="dim-breakdown">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="section-title">
+        <span class="num">II.</span>
+        <h2>Tre priorità per i prossimi novanta giorni</h2>
+      </div>
+
+      <div class="interventions" id="interventions">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="hours-block">
+        <div class="hours-display">
+          <p class="label">Tempo recuperabile stimato</p>
+          <div class="value"><span id="hours-num">0</span><span class="unit">ore / settimana</span></div>
+        </div>
+        <p class="hours-context" id="hours-context"></p>
+      </div>
+
+      <div class="cta-block">
+        <div class="cta-block-content">
+          <p class="eyebrow">Il passo successivo</p>
+          <h2>Una chiamata di trenta minuti, <em>gratuita.</em></h2>
+          <p>Ripercorriamo insieme i risultati di questo diagnostico, e mappiamo un progetto operativo concreto. Se la conversazione non vi sembra utile, finiamo lì. Se vi sembra utile, parliamo di come strutturarla — incluso quali bandi (Sviluppo Competenze 2026, ZES Unica) possono coprirne il 70-90% del costo.</p>
+          <a href="mailto:info@itria.it?subject=Diagnostico%20Digitale%20-%20richiesta%20chiamata" class="btn-primary">Prenota la chiamata</a>
+          <div class="cta-context">
+            <span class="item">Nessun impegno</span>
+            <span class="item">Risposta entro 24 ore</span>
+            <span class="item">Bandi pubblici 50–90%</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="restart" onclick="restartQuiz()">Ricomincia il diagnostico</button>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="closing-line">La tradizione tiene. I mercati si muovono. Itria mostra la strada.</p>
+  <p class="brand-footer">ITRIA</p>
+  <p class="brand-footer-sub">Integrazione Tecnologica per il Rendimento dell'Impresa Adattiva</p>
+</footer>
+
+<script>
+/* ============================================================
+   ITRIA DIAGNOSTICO — STATE & LOGIC
+   ============================================================ */
+
+const DIMENSIONS = [
+  { id: 1, name: "Gestione buyer internazionali", short: "Buyer esteri" },
+  { id: 2, name: "Documentazione export",         short: "Documenti" },
+  { id: 3, name: "Ciclo cliente",                  short: "Clienti" },
+  { id: 4, name: "Capacità operativa",             short: "Operativa" },
+  { id: 5, name: "Visibilità dati",                short: "Dati" }
+];
+
+const QUESTIONS = [
+  // ===== DIMENSION 1 — Gestione buyer internazionali =====
+  {
+    dim: 1,
+    text: "In quante lingue gestite oggi le comunicazioni con buyer esteri in modo professionale?",
+    options: [
+      { label: "Solo italiano. Quando arriva una mail estera, ci affidiamo a traduttore o rispondiamo come possiamo.", points: 0 },
+      { label: "Italiano e inglese di base. Per le altre lingue ci arrangiamo con strumenti automatici.", points: 1 },
+      { label: "Italiano, inglese e una o due altre lingue gestite con sicurezza.", points: 2 },
+      { label: "Quattro o più lingue gestite a livello professionale, con materiali pronti.", points: 3 }
+    ]
+  },
+  {
+    dim: 1,
+    text: "Tempo medio di risposta a una richiesta di un nuovo buyer estero.",
+    options: [
+      { label: "Più di cinque giorni. A volte ce ne dimentichiamo del tutto.", points: 0 },
+      { label: "Da due a quattro giorni in media.", points: 1 },
+      { label: "Tra ventiquattro e quarantotto ore.", points: 2 },
+      { label: "Lo stesso giorno lavorativo, con prima risposta automatica entro l'ora.", points: 3 }
+    ]
+  },
+  {
+    dim: 1,
+    text: "Stima onesta delle richieste estere rimaste senza risposta negli ultimi dodici mesi.",
+    options: [
+      { label: "Più del trenta per cento. Sappiamo di perdere opportunità ma non riusciamo a tenerci dietro.", points: 0 },
+      { label: "Tra il quindici e il trenta per cento.", points: 1 },
+      { label: "Tra il cinque e il quindici per cento.", points: 2 },
+      { label: "Meno del cinque per cento. Tutto tracciato, tutto risposto.", points: 3 }
+    ]
+  },
+  {
+    dim: 1,
+    text: "Sistema per qualificare un buyer prima di investirci tempo.",
+    options: [
+      { label: "Nessuno. Rispondiamo a tutti allo stesso modo.", points: 0 },
+      { label: "Filtro mentale di chi gestisce le mail. Niente di scritto.", points: 1 },
+      { label: "Checklist informale: paese, volume potenziale, referenze.", points: 2 },
+      { label: "Sistema strutturato con scoring documentato e archiviato.", points: 3 }
+    ]
+  },
+
+  // ===== DIMENSION 2 — Documentazione export =====
+  {
+    dim: 2,
+    text: "Compilazione di DDT, fatture export e packing list.",
+    options: [
+      { label: "Tutto manuale. Word, Excel, copia-incolla per ogni spedizione.", points: 0 },
+      { label: "Template salvati che riempiamo a mano, ordine per ordine.", points: 1 },
+      { label: "Gestionale che genera la base, noi rifiniamo.", points: 2 },
+      { label: "Sistema integrato: dall'ordine cliente partono tutti i documenti automaticamente.", points: 3 }
+    ]
+  },
+  {
+    dim: 2,
+    text: "Schede tecniche prodotto in lingua estera.",
+    options: [
+      { label: "Le traduciamo ad-hoc quando un buyer le chiede, ogni volta.", points: 0 },
+      { label: "Tradotte una volta, riutilizzate. Aggiornarle è un problema.", points: 1 },
+      { label: "Mantenute in due o tre lingue, aggiornate ogni anno.", points: 2 },
+      { label: "Sistema con versioning multilingua, sempre allineato al prodotto reale.", points: 3 }
+    ]
+  },
+  {
+    dim: 2,
+    text: "Documentazione doganale e certificati origine.",
+    options: [
+      { label: "Lo spedizioniere fa tutto. Noi non vediamo neanche cosa esce.", points: 0 },
+      { label: "Compiliamo a mano i documenti che ci vengono richiesti, volta per volta.", points: 1 },
+      { label: "Template ricorrenti per i mercati abituali, copia-incolla con verifica.", points: 2 },
+      { label: "Generazione automatica dai dati ordine, con controllo finale prima dell'invio.", points: 3 }
+    ]
+  },
+  {
+    dim: 2,
+    text: "Tracciabilità lotto e gestione certificazioni (DOP, IGP, BIO, DOC, DOCG).",
+    options: [
+      { label: "Cartaceo o fogli Excel sparsi. Trovare un lotto del 2023 è un problema.", points: 0 },
+      { label: "Excel centralizzato con ricerca manuale.", points: 1 },
+      { label: "Database aziendale con ricerca per lotto e data.", points: 2 },
+      { label: "Sistema integrato accessibile anche al buyer in tempo reale.", points: 3 }
+    ]
+  },
+
+  // ===== DIMENSION 3 — Ciclo cliente =====
+  {
+    dim: 3,
+    text: "Memoria storica degli ordini di un cliente.",
+    options: [
+      { label: "Nella testa di chi gestisce quel cliente. Se cambia persona, si perde.", points: 0 },
+      { label: "Nelle email archiviate. Si ricostruisce caso per caso quando serve.", points: 1 },
+      { label: "Excel per cliente con storico ordini.", points: 2 },
+      { label: "CRM con timeline completa: ordini, conversazioni, preferenze, anomalie.", points: 3 }
+    ]
+  },
+  {
+    dim: 3,
+    text: "Trigger per riordini e clienti dormienti.",
+    options: [
+      { label: "Aspettiamo che ci chiamino loro.", points: 0 },
+      { label: "Ci ricordiamo manualmente dei più importanti, quando ci viene in mente.", points: 1 },
+      { label: "Reminder a calendario per i clienti principali.", points: 2 },
+      { label: "Automazione che notifica quando un cliente esce dal suo ciclo abituale.", points: 3 }
+    ]
+  },
+  {
+    dim: 3,
+    text: "Raccolta feedback e recensioni post-vendita.",
+    options: [
+      { label: "Nessuna struttura. Sentiamo i feedback se arrivano.", points: 0 },
+      { label: "Chiamata occasionale ai clienti più importanti.", points: 1 },
+      { label: "Email a campione dopo le consegne grandi.", points: 2 },
+      { label: "Sistema automatico post-consegna su tutta la base clienti.", points: 3 }
+    ]
+  },
+  {
+    dim: 3,
+    text: "Gestione del rapporto con distributori esteri.",
+    options: [
+      { label: "Contatto telefonico o email quando capita.", points: 0 },
+      { label: "Cadenza fissa di chiamate ma tutto manuale.", points: 1 },
+      { label: "Report periodico condiviso con i distributori principali.", points: 2 },
+      { label: "Portale o dashboard dedicato dove ogni distributore vede i propri dati.", points: 3 }
+    ]
+  },
+
+  // ===== DIMENSION 4 — Capacità operativa =====
+  {
+    dim: 4,
+    text: "Ore settimanali del titolare o erede su attività amministrative ripetitive.",
+    options: [
+      { label: "Più di venti ore. È diventato il lavoro principale.", points: 0 },
+      { label: "Tra dieci e venti ore. Pesa molto sulla giornata.", points: 1 },
+      { label: "Tra cinque e dieci ore. Sotto controllo ma non azzerato.", points: 2 },
+      { label: "Meno di cinque ore. La giornata è dedicata al business, non al backoffice.", points: 3 }
+    ]
+  },
+  {
+    dim: 4,
+    text: "Quando il volume amministrativo cresce, la risposta tipica è —",
+    options: [
+      { label: "Aggiungere ore di lavoro alle persone già in azienda.", points: 0 },
+      { label: "Assumere qualcuno per gestirlo.", points: 1 },
+      { label: "Esternalizzare a un consulente o studio.", points: 2 },
+      { label: "Identificare cosa è ripetitivo e automatizzarlo.", points: 3 }
+    ]
+  },
+  {
+    dim: 4,
+    text: "Stato del passaggio generazionale.",
+    options: [
+      { label: "Non se ne parla apertamente. È un tema scomodo.", points: 0 },
+      { label: "Se ne parla in famiglia, ma niente è ancora strutturato.", points: 1 },
+      { label: "Erede già operativo. Patriarca conserva il ruolo decisionale.", points: 2 },
+      { label: "Transizione mappata con tempi e responsabilità chiare.", points: 3 }
+    ]
+  },
+  {
+    dim: 4,
+    text: "Capacità del team di adottare nuovi strumenti digitali.",
+    options: [
+      { label: "Forte resistenza. Abbiamo provato in passato e non è andata bene.", points: 0 },
+      { label: "Resistenza ma ci provano se serve.", points: 1 },
+      { label: "Curiosi e disponibili. Serve formazione strutturata.", points: 2 },
+      { label: "Già usano strumenti digitali quotidianamente, in autonomia.", points: 3 }
+    ]
+  },
+
+  // ===== DIMENSION 5 — Visibilità dati =====
+  {
+    dim: 5,
+    text: "Margine reale per cliente o per buyer.",
+    options: [
+      { label: "Non lo conosciamo cliente per cliente.", points: 0 },
+      { label: "Stima a fine anno guardando i totali.", points: 1 },
+      { label: "Calcolato per i clienti top, una volta a trimestre.", points: 2 },
+      { label: "Visibile in tempo reale per ogni cliente, in qualsiasi momento.", points: 3 }
+    ]
+  },
+  {
+    dim: 5,
+    text: "Performance dei diversi canali (export diretto, distributori, fiere, online).",
+    options: [
+      { label: "Sensazione, non numeri.", points: 0 },
+      { label: "Calcolata a fine anno con i dati di bilancio.", points: 1 },
+      { label: "Report trimestrale per canale.", points: 2 },
+      { label: "Dashboard live con confronti mese su mese, anno su anno.", points: 3 }
+    ]
+  },
+  {
+    dim: 5,
+    text: "DSO — giorni medi di incasso fatture.",
+    options: [
+      { label: "Non monitorato sistematicamente.", points: 0 },
+      { label: "Conosciamo la media generale, niente di più.", points: 1 },
+      { label: "Tracciato per cliente, controllato a richiesta.", points: 2 },
+      { label: "Allerta automatica quando un cliente cambia comportamento di pagamento.", points: 3 }
+    ]
+  },
+  {
+    dim: 5,
+    text: "Identificazione di anomalie operative (calo ordini, prezzo medio in calo, conversion buyer).",
+    options: [
+      { label: "Ci accorgiamo dei problemi a fine periodo, quando è tardi.", points: 0 },
+      { label: "Riconosciute al volo solo se abbastanza grandi.", points: 1 },
+      { label: "Report mensile con i KPI principali.", points: 2 },
+      { label: "Alert automatici quando un indicatore esce dal range normale.", points: 3 }
+    ]
+  }
+];
+
+const INTERVENTIONS = {
+  1: {
+    title: "Risposta automatica multilingua a richieste estere",
+    desc: "Pipeline che intercetta nuove email da buyer esteri, le classifica per priorità (paese, volume potenziale, mercato target), genera una prima risposta professionale nella lingua del buyer entro un'ora — e segnala al titolare solo le opportunità qualificate da gestire personalmente.",
+    hours: 6
+  },
+  2: {
+    title: "Generazione automatica della documentazione export",
+    desc: "Da un singolo ordine cliente, il sistema produce simultaneamente DDT, fattura proforma, packing list, scheda tecnica multilingua e documenti doganali. Quello che oggi prende un'ora di lavoro manuale viene completato in meno di due minuti, senza errori di trascrizione.",
+    hours: 8
+  },
+  3: {
+    title: "Memoria attiva sui clienti dormienti",
+    desc: "CRM specializzato che monitora il ciclo di riordino di ogni distributore. Notifica automatica quando un cliente storico salta il ciclo abituale, con contesto completo: ultimo ordine, prodotti acquistati, stagionalità tipica, ipotesi di causa. Il commerciale chiama già preparato.",
+    hours: 4
+  },
+  4: {
+    title: "Cruscotto del titolare — un'ora alla settimana",
+    desc: "Tutto ciò che oggi vi costringe a controllare email e documenti durante la giornata viene aggregato in un singolo cruscotto: nuove richieste qualificate, scadenze documentali, anomalie operative. Una sessione settimanale di un'ora sostituisce dieci controlli sparsi al giorno.",
+    hours: 7
+  },
+  5: {
+    title: "Visibilità tempo reale su margine e DSO",
+    desc: "Connessione tra gestionale, banca e CRM. Margine reale per cliente visibile in ogni momento. Allerta automatica quando un cliente cambia comportamento di pagamento o un canale comincia a degradare. Le decisioni si prendono sui dati, non sulla sensazione.",
+    hours: 5
+  }
+};
+
+const ZONES = {
+  critical: {
+    label: "Zona critica",
+    desc: "Le ore che state perdendo ogni settimana superano il tempo che potreste dedicare alla crescita. La buona notizia: il ritorno sull'intervento è il più alto possibile."
+  },
+  vulnerable: {
+    label: "Zona vulnerabile",
+    desc: "L'operatività regge oggi ma scala male. Un raddoppio dei volumi, o l'ingresso di un mercato nuovo, mette in crisi la struttura attuale."
+  },
+  competitive: {
+    label: "Zona competitiva",
+    desc: "Fondamenti solidi. Le leve di crescita sono identificabili e selettive: non serve trasformare tutto, serve scegliere bene dove intervenire."
+  },
+  advanced: {
+    label: "Zona avanzata",
+    desc: "Posizione di leadership operativa nel vostro segmento. Le ottimizzazioni sono mirate e producono distacco competitivo, non sopravvivenza."
+  }
+};
+
+function getZone(score) {
+  if (score < 26) return "critical";
+  if (score < 51) return "vulnerable";
+  if (score < 76) return "competitive";
+  return "advanced";
+}
+
+/* ============ STATE ============ */
+
+const STATE = {
+  current: 0,
+  answers: new Array(QUESTIONS.length).fill(null),
+  contact: {}
+};
+
+/* ============ NAVIGATION ============ */
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function startQuiz() {
+  STATE.current = 0;
+  showScreen('screen-quiz');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[STATE.current];
+  const dim = DIMENSIONS.find(d => d.id === q.dim);
+  const card = document.getElementById('question-card');
+
+  const numStr = String(STATE.current + 1).padStart(2, '0');
+
+  card.innerHTML = `
+    <div class="q-number">${numStr}</div>
+    <h2 class="q-text">${q.text}</h2>
+    <div class="q-options">
+      ${q.options.map((o, i) => `
+        <button class="q-option ${STATE.answers[STATE.current] === o.points ? 'selected' : ''}"
+                data-points="${o.points}"
+                onclick="selectOption(${o.points}, this)">
+          <span class="marker">${String.fromCharCode(65 + i)}</span>
+          <span>${o.label}</span>
+        </button>
+      `).join('')}
+    </div>
+  `;
+
+  // Force re-trigger the entry animation
+  card.style.animation = 'none';
+  card.offsetHeight;
+  card.style.animation = '';
+
+  document.getElementById('q-current-num').textContent = STATE.current + 1;
+  document.getElementById('q-dim-name').textContent = dim.name;
+
+  const progress = ((STATE.current + 1) / QUESTIONS.length) * 100;
+  document.getElementById('progress-bar').style.width = progress + '%';
+
+  document.getElementById('btn-back').disabled = STATE.current === 0;
+  document.getElementById('btn-next').disabled = STATE.answers[STATE.current] === null;
+  document.getElementById('btn-next').textContent =
+    (STATE.current === QUESTIONS.length - 1) ? 'Vedi i risultati →' : 'Continua →';
+
+  document.getElementById('nav-info').textContent = `Dimensione ${q.dim} di 5`;
+}
+
+function selectOption(points, el) {
+  STATE.answers[STATE.current] = points;
+  document.querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('btn-next').disabled = false;
+
+  // Auto-advance after a beat for momentum
+  setTimeout(() => {
+    if (STATE.answers[STATE.current] !== null) nextQuestion();
+  }, 380);
+}
+
+function nextQuestion() {
+  if (STATE.answers[STATE.current] === null) return;
+  if (STATE.current < QUESTIONS.length - 1) {
+    STATE.current++;
+    renderQuestion();
+  } else {
+    showScreen('screen-capture');
+  }
+}
+
+function prevQuestion() {
+  if (STATE.current > 0) {
+    STATE.current--;
+    renderQuestion();
+  }
+}
+
+function submitCapture(e) {
+  e.preventDefault();
+  STATE.contact = {
+    name:    document.getElementById('capt-name').value.trim(),
+    company: document.getElementById('capt-company').value.trim(),
+    email:   document.getElementById('capt-email').value.trim(),
+    role:    document.getElementById('capt-role').value
+  };
+  showScreen('screen-report');
+  renderReport();
+}
+
+/* ============ SCORING ============ */
+
+function totalScore() {
+  const sum = STATE.answers.reduce((a, b) => a + (b ?? 0), 0);
+  const max = QUESTIONS.length * 3;
+  return Math.round((sum / max) * 100);
+}
+
+function dimensionScores() {
+  const sums = {};
+  const counts = {};
+  DIMENSIONS.forEach(d => { sums[d.id] = 0; counts[d.id] = 0; });
+  QUESTIONS.forEach((q, i) => {
+    const v = STATE.answers[i];
+    if (v !== null) {
+      sums[q.dim] += v;
+      counts[q.dim]++;
+    }
+  });
+  return DIMENSIONS.map(d => ({
+    id: d.id,
+    name: d.name,
+    short: d.short,
+    score: Math.round((sums[d.id] / (counts[d.id] * 3)) * 100)
+  }));
+}
+
+function pickInterventions() {
+  const ds = dimensionScores();
+  // Sort ascending by score → take 3 lowest
+  return [...ds].sort((a, b) => a.score - b.score).slice(0, 3)
+    .map(d => ({ ...INTERVENTIONS[d.id], dim: d.id, dimName: d.name, dimScore: d.score }));
+}
+
+function hoursRecovered() {
+  const score = totalScore();
+  // Inverse linear, capped at 22 hours/week
+  return Math.max(2, Math.round((100 - score) / 100 * 22));
+}
+
+/* ============ REPORT RENDERING ============ */
+
+function renderReport() {
+  const score = totalScore();
+  const ds = dimensionScores();
+  const zone = getZone(score);
+  const interventions = pickInterventions();
+  const hours = hoursRecovered();
+
+  // Company name
+  document.getElementById('report-company').textContent =
+    STATE.contact.company || "la vostra azienda";
+
+  // Score animation
+  animateNumber('score-num', 0, score, 1400);
+  document.getElementById('score-zone').textContent = ZONES[zone].label;
+  document.getElementById('score-zone-desc').textContent = ZONES[zone].desc;
+
+  // Radar
+  drawRadar(ds);
+
+  // Dimension breakdown
+  const breakdown = document.getElementById('dim-breakdown');
+  breakdown.innerHTML = ds.map((d, i) => {
+    const z = getZone(d.score);
+    return `
+      <div class="dim-card" data-zone="${z}">
+        <div class="dim-num">${roman(i + 1)}.</div>
+        <div class="dim-name">${d.name}</div>
+        <div class="dim-score">
+          <span class="num">${d.score}</span>
+          <span class="pct">/ 100</span>
+        </div>
+        <div class="dim-bar-wrap"><div class="dim-bar" style="width:${d.score}%"></div></div>
+        <div class="dim-zone">${ZONES[z].label}</div>
+      </div>
+    `;
+  }).join('');
+
+  // Animate dim bars
+  setTimeout(() => {
+    document.querySelectorAll('.dim-bar').forEach((bar, i) => {
+      bar.style.width = ds[i].score + '%';
+    });
+  }, 100);
+
+  // Interventions
+  document.getElementById('interventions').innerHTML = interventions.map((iv, i) => `
+    <div class="intervention">
+      <div class="priority">${String(i + 1).padStart(2, '0')}</div>
+      <div class="body">
+        <div class="title">${iv.title}</div>
+        <div class="desc">${iv.desc}</div>
+      </div>
+      <div class="hours-tag"><span class="num">${iv.hours}</span>ore/sett.</div>
+    </div>
+  `).join('');
+
+  // Hours
+  animateNumber('hours-num', 0, hours, 1400);
+  document.getElementById('hours-context').textContent =
+    score < 26
+      ? "A questo livello operativo, recuperare anche dieci ore alla settimana significa restituire al titolare un'intera giornata lavorativa per la crescita del business — non per inseguire i compiti del giorno."
+    : score < 51
+      ? "Le ore recuperabili coprono ampiamente il costo di un intervento strutturato, anche prima di considerare i bandi pubblici disponibili."
+    : score < 76
+      ? "Anche pochi punti di ottimizzazione, su una base già solida, generano un ritorno significativo se concentrati sulle aree giuste."
+      : "A questo livello, ogni ora liberata è un'ora di vantaggio competitivo. Il margine si gioca sulla precisione delle ottimizzazioni residue.";
+}
+
+function animateNumber(id, from, to, duration) {
+  const el = document.getElementById(id);
+  const start = performance.now();
+  function step(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(from + (to - from) * eased);
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function roman(n) {
+  return ['I', 'II', 'III', 'IV', 'V'][n - 1] || n;
+}
+
+/* ============ RADAR CHART ============ */
+
+function drawRadar(ds) {
+  const svg = document.getElementById('radar-svg');
+  const cx = 0, cy = 0;
+  const maxR = 130;
+  const n = ds.length;
+
+  // Helper: angle for axis i (start at top, go clockwise)
+  const angle = i => (-Math.PI / 2) + (2 * Math.PI * i / n);
+  const point = (i, r) => ({
+    x: cx + Math.cos(angle(i)) * r,
+    y: cy + Math.sin(angle(i)) * r
+  });
+
+  let html = '';
+
+  // Grid polygons at 25%, 50%, 75%, 100%
+  [0.25, 0.5, 0.75, 1.0].forEach((frac, idx) => {
+    const points = Array.from({ length: n }, (_, i) => {
+      const p = point(i, maxR * frac);
+      return `${p.x},${p.y}`;
+    }).join(' ');
+    const cls = idx === 3 ? 'grid-poly outer' : 'grid-poly';
+    html += `<polygon class="${cls}" points="${points}"/>`;
+  });
+
+  // Axis lines
+  for (let i = 0; i < n; i++) {
+    const p = point(i, maxR);
+    html += `<line class="axis-line" x1="${cx}" y1="${cy}" x2="${p.x}" y2="${p.y}"/>`;
+  }
+
+  // Data polygon
+  const dataPoints = ds.map((d, i) => point(i, maxR * (d.score / 100)));
+  const dataStr = dataPoints.map(p => `${p.x},${p.y}`).join(' ');
+  html += `<polygon class="data-poly" points="${dataStr}"/>`;
+
+  // Data points
+  dataPoints.forEach(p => {
+    html += `<circle class="data-point" cx="${p.x}" cy="${p.y}" r="4"/>`;
+  });
+
+  // Axis labels (positioned outside max radius)
+  ds.forEach((d, i) => {
+    const lp = point(i, maxR + 32);
+    let anchor = 'middle';
+    if (lp.x < -10) anchor = 'end';
+    else if (lp.x > 10) anchor = 'start';
+
+    html += `<text class="axis-label" x="${lp.x}" y="${lp.y}" text-anchor="${anchor}" dominant-baseline="middle">${d.short}</text>`;
+
+    // Score value beneath label
+    const vp = point(i, maxR + 50);
+    html += `<text class="axis-value" x="${vp.x}" y="${vp.y}" text-anchor="${anchor}" dominant-baseline="middle">${d.score}</text>`;
+  });
+
+  svg.innerHTML = html;
+}
+
+/* ============ RESTART ============ */
+
+function restartQuiz() {
+  STATE.current = 0;
+  STATE.answers = new Array(QUESTIONS.length).fill(null);
+  STATE.contact = {};
+  document.getElementById('capture-form').reset();
+  showScreen('screen-intro');
+}
+
+/* ============ KEYBOARD NAVIGATION ============ */
+
+document.addEventListener('keydown', (e) => {
+  const quizActive = document.getElementById('screen-quiz').classList.contains('active');
+  if (!quizActive) return;
+  if (e.key === 'ArrowRight' && !document.getElementById('btn-next').disabled) nextQuestion();
+  if (e.key === 'ArrowLeft' && !document.getElementById('btn-back').disabled) prevQuestion();
+  // Number keys 1-4 for selection
+  if (['1','2','3','4'].includes(e.key)) {
+    const opts = document.querySelectorAll('.q-option');
+    const idx = parseInt(e.key) - 1;
+    if (opts[idx]) opts[idx].click();
+  }
+});
+
+/* ============ INIT ============ */
+
+// First question pre-render so it's ready when user clicks start
+renderQuestion();
+</script>
+
+</body>
+</html>
