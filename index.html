@@ -6,6 +6,10 @@
 <title>Itria &mdash; Per le eccellenze agroalimentari del Sud Italia</title>
 <meta name="description" content="Costruiamo l'infrastruttura digitale che restituisce tempo a chi produce cio che il mondo cerca.">
 <meta name="theme-color" content="#F5F1EA">
+<meta property="og:title" content="Itria — Per le eccellenze agroalimentari del Sud Italia">
+<meta property="og:description" content="Costruiamo l'infrastruttura digitale che restituisce tempo a chi produce ciò che il mondo cerca.">
+<meta property="og:url" content="https://itria.io">
+<meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="/favicon_32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -279,6 +283,7 @@ h3{font-family:var(--fd);font-weight:500;font-size:clamp(1.4rem,2.5vw,1.75rem);l
         <input class="finp" type="email" id="qf-email" placeholder="vostranome@lavostraazienda.it" autocomplete="email" required>
         <div class="fhint">Indicate un indirizzo valido.</div>
       </div>
+      <input type="text" name="website_url" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
       <button type="submit" class="qsb" id="qfsub">Avviare il Quadro</button>
       <div class="qerr" id="qerr"></div>
       <p class="qft">Diagnostica autonoma. Nessuna registrazione. <em>Risultato immediato.</em></p>
@@ -518,6 +523,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
   form.addEventListener('submit',async e=>{
     e.preventDefault();clearErr();
+    if(document.querySelector('[name="website_url"]').value){return;}
     const nm=document.getElementById('qf-name').value.trim();
     let url=document.getElementById('qf-url').value.trim();
     const em=document.getElementById('qf-email').value.trim();
