@@ -284,7 +284,6 @@ h3{font-family:var(--fd);font-weight:500;font-size:clamp(1.4rem,2.5vw,1.75rem);l
         <input class="finp" type="email" id="qf-email" placeholder="vostranome@lavostraazienda.it" autocomplete="email" required>
         <div class="fhint">Indicate un indirizzo valido.</div>
       </div>
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
       <button type="submit" class="qsb" id="qfsub">Avviare il Quadro</button>
       <div class="qerr" id="qerr"></div>
       <p class="qft">Diagnostica autonoma. Nessuna registrazione. <em>Risultato immediato.</em></p>
@@ -523,7 +522,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
   form.addEventListener('submit',async e=>{
     e.preventDefault();clearErr();
-    if(document.querySelector('[name="_gotcha"]').value){return;}
     const nm=document.getElementById('qf-name').value.trim();
     let url=document.getElementById('qf-url').value.trim();
     const em=document.getElementById('qf-email').value.trim();
